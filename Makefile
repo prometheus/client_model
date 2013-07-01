@@ -29,6 +29,7 @@ go/metrics.pb.go: metrics.proto
 	protoc $< --go_out=go/
 
 java: java/src/main/java/io/prometheus/client/Metrics.java
+	$(MAKE) -C java
 
 java/src/main/java/io/prometheus/client/Metrics.java: metrics.proto
 	protoc $< --java_out=java/src/main/java
