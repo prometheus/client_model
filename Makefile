@@ -28,15 +28,22 @@ go: go/metrics.pb.go
 go/metrics.pb.go: metrics.proto
 	protoc $< --go_out=go/
 
-java: java/src/main/java/io/prometheus/client/Metrics.java
-	$(MAKE) -C java
+java: src/main/java/io/prometheus/client/Metrics.java pom.xml
+	mvn clean compile package
 
-java/src/main/java/io/prometheus/client/Metrics.java: metrics.proto
-	protoc $< --java_out=java/src/main/java
+src/main/java/io/prometheus/client/Metrics.java: metrics.proto
+	protoc $< --java_out=src/main/java
 
 python: python/metrics_pb2.py
 
 python/metrics_pb2.py: metrics.proto
 	protoc $< --python_out=python/
 
-.PHONY: all cpp go java python
+clean:
+	-rm -rf cpp/*
+	-rm -rf go/*
+	-rm -rf java/*
+	-rm -rf python/*
+	-mvn clean
+
+.PHONY: all clean cpp go java python
