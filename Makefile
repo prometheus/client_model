@@ -11,6 +11,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+KEY_ID ?= _DEFINE_ME_
+
 all: cpp go java python
 
 SUFFIXES:
@@ -46,4 +48,10 @@ clean:
 	-rm -rf python/*
 	-mvn clean
 
-.PHONY: all clean cpp go java python
+maven-deploy-snapshot: java
+	mvn clean deploy -Dgpg.keyname=$(KEY_ID) -DperformRelease=true
+
+maven-deploy-release: java
+	mvn clean release:clean release:prepare release:perform -Dgpg.keyname=$(KEY_ID) -DperformRelease=true
+
+.PHONY: all clean cpp go java maven-deploy-snapshot maven-deploy-release python
