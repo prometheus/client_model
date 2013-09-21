@@ -36,10 +36,10 @@ java: src/main/java/io/prometheus/client/Metrics.java pom.xml
 src/main/java/io/prometheus/client/Metrics.java: metrics.proto
 	protoc $< --java_out=src/main/java
 
-python: python/metrics_pb2.py
+python: python/prometheus/client/model/metrics_pb2.py
 
-python/metrics_pb2.py: metrics.proto
-	protoc $< --python_out=python/
+python/prometheus/client/model/metrics_pb2.py: metrics.proto
+	protoc $< --python_out=python/prometheus/client/model
 
 clean:
 	-rm -rf cpp/*
