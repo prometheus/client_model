@@ -13,7 +13,7 @@
 
 KEY_ID ?= _DEFINE_ME_
 
-all: cpp go java python
+all: cpp go java python ruby
 
 SUFFIXES:
 
@@ -41,11 +41,15 @@ python: python/prometheus/client/model/metrics_pb2.py
 python/prometheus/client/model/metrics_pb2.py: metrics.proto
 	protoc $< --python_out=python/prometheus/client/model
 
+ruby:
+	$(MAKE) -C ruby build
+
 clean:
 	-rm -rf cpp/*
 	-rm -rf go/*
 	-rm -rf java/*
 	-rm -rf python/*
+	-$(MAKE) -C ruby clean
 	-mvn clean
 
 maven-deploy-snapshot: java
@@ -54,4 +58,4 @@ maven-deploy-snapshot: java
 maven-deploy-release: java
 	mvn clean release:clean release:prepare release:perform -Dgpg.keyname=$(KEY_ID) -DperformRelease=true
 
-.PHONY: all clean cpp go java maven-deploy-snapshot maven-deploy-release python
+.PHONY: all clean cpp go java maven-deploy-snapshot maven-deploy-release python ruby
