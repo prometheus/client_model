@@ -14,6 +14,10 @@ be required.
 *  [Go](http://golang.org)
 *  [goprotobuf](https://code.google.com/p/goprotobuf)
 
+## Ruby
+*  [Ruby](https://www.ruby-lang.org)
+*  [bundler](https://rubygems.org/gems/bundler)
+
 # Building
     $ make
 
