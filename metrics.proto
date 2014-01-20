@@ -11,6 +11,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// This is the old, nested protocol format. It should be kept around for
+// backwards compatibility between client and server, but clients should prefer
+// the format described in prometheus.proto.
 syntax = "proto2";
 
 package io.prometheus.client;
