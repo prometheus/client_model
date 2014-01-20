@@ -2,7 +2,23 @@
 // source: metrics.proto
 // DO NOT EDIT!
 
-package io_prometheus_client
+/*
+Package model is a generated protocol buffer package.
+
+It is generated from these files:
+	metrics.proto
+	prometheus.proto
+
+It has these top-level messages:
+	LabelPair
+	Gauge
+	Counter
+	Quantile
+	Summary
+	Metric
+	MetricFamily
+*/
+package model
 
 import proto "code.google.com/p/goprotobuf/proto"
 import json "encoding/json"
@@ -39,9 +55,6 @@ func (x MetricType) Enum() *MetricType {
 }
 func (x MetricType) String() string {
 	return proto.EnumName(MetricType_name, int32(x))
-}
-func (x MetricType) MarshalJSON() ([]byte, error) {
-	return json.Marshal(x.String())
 }
 func (x *MetricType) UnmarshalJSON(data []byte) error {
 	value, err := proto.UnmarshalJSONEnum(MetricType_value, data, "MetricType")
@@ -234,7 +247,7 @@ func (m *MetricFamily) GetType() MetricType {
 	if m != nil && m.Type != nil {
 		return *m.Type
 	}
-	return 0
+	return MetricType_COUNTER
 }
 
 func (m *MetricFamily) GetMetric() []*Metric {
