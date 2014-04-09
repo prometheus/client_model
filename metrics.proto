@@ -46,11 +46,17 @@ message Summary {
   repeated Quantile quantile     = 3;
 }
 
+message Custom {
+  optional double value = 1;
+}
+
 message Metric {
-  repeated LabelPair label   = 1;
-  optional Gauge     gauge   = 2;
-  optional Counter   counter = 3;
-  optional Summary   summary = 4;
+  repeated LabelPair label        = 1;
+  optional Gauge     gauge        = 2;
+  optional Counter   counter      = 3;
+  optional Summary   summary      = 4;
+  optional Custom    custom	  = 5;
+  optional int64     timestamp_ms = 6;
 }
 
 message MetricFamily {

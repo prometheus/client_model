@@ -37,6 +37,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Summary_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Summary_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Custom_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Custom_reflection_ = NULL;
 const ::google::protobuf::Descriptor* Metric_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Metric_reflection_ = NULL;
@@ -133,12 +136,29 @@ void protobuf_AssignDesc_metrics_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Summary));
-  Metric_descriptor_ = file->message_type(5);
-  static const int Metric_offsets_[4] = {
+  Custom_descriptor_ = file->message_type(5);
+  static const int Custom_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Custom, value_),
+  };
+  Custom_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Custom_descriptor_,
+      Custom::default_instance_,
+      Custom_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Custom, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Custom, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Custom));
+  Metric_descriptor_ = file->message_type(6);
+  static const int Metric_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Metric, label_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Metric, gauge_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Metric, counter_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Metric, summary_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Metric, custom_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Metric, timestamp_ms_),
   };
   Metric_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -151,7 +171,7 @@ void protobuf_AssignDesc_metrics_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Metric));
-  MetricFamily_descriptor_ = file->message_type(6);
+  MetricFamily_descriptor_ = file->message_type(7);
   static const int MetricFamily_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MetricFamily, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MetricFamily, help_),
@@ -193,6 +213,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Summary_descriptor_, &Summary::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Custom_descriptor_, &Custom::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Metric_descriptor_, &Metric::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     MetricFamily_descriptor_, &MetricFamily::default_instance());
@@ -211,6 +233,8 @@ void protobuf_ShutdownFile_metrics_2eproto() {
   delete Quantile_reflection_;
   delete Summary::default_instance_;
   delete Summary_reflection_;
+  delete Custom::default_instance_;
+  delete Custom_reflection_;
   delete Metric::default_instance_;
   delete Metric_reflection_;
   delete MetricFamily::default_instance_;
@@ -230,18 +254,20 @@ void protobuf_AddDesc_metrics_2eproto() {
     "lue\030\001 \001(\001\"+\n\010Quantile\022\020\n\010quantile\030\001 \001(\001\022"
     "\r\n\005value\030\002 \001(\001\"e\n\007Summary\022\024\n\014sample_coun"
     "t\030\001 \001(\004\022\022\n\nsample_sum\030\002 \001(\001\0220\n\010quantile\030"
-    "\003 \003(\0132\036.io.prometheus.client.Quantile\"\304\001"
-    "\n\006Metric\022.\n\005label\030\001 \003(\0132\037.io.prometheus."
-    "client.LabelPair\022*\n\005gauge\030\002 \001(\0132\033.io.pro"
-    "metheus.client.Gauge\022.\n\007counter\030\003 \001(\0132\035."
-    "io.prometheus.client.Counter\022.\n\007summary\030"
-    "\004 \001(\0132\035.io.prometheus.client.Summary\"\210\001\n"
-    "\014MetricFamily\022\014\n\004name\030\001 \001(\t\022\014\n\004help\030\002 \001("
-    "\t\022.\n\004type\030\003 \001(\0162 .io.prometheus.client.M"
-    "etricType\022,\n\006metric\030\004 \003(\0132\034.io.prometheu"
-    "s.client.Metric*1\n\nMetricType\022\013\n\007COUNTER"
-    "\020\000\022\t\n\005GAUGE\020\001\022\013\n\007SUMMARY\020\002B\026\n\024io.prometh"
-    "eus.client", 690);
+    "\003 \003(\0132\036.io.prometheus.client.Quantile\"\027\n"
+    "\006Custom\022\r\n\005value\030\001 \001(\001\"\210\002\n\006Metric\022.\n\005lab"
+    "el\030\001 \003(\0132\037.io.prometheus.client.LabelPai"
+    "r\022*\n\005gauge\030\002 \001(\0132\033.io.prometheus.client."
+    "Gauge\022.\n\007counter\030\003 \001(\0132\035.io.prometheus.c"
+    "lient.Counter\022.\n\007summary\030\004 \001(\0132\035.io.prom"
+    "etheus.client.Summary\022,\n\006custom\030\005 \001(\0132\034."
+    "io.prometheus.client.Custom\022\024\n\014timestamp"
+    "_ms\030\006 \001(\003\"\210\001\n\014MetricFamily\022\014\n\004name\030\001 \001(\t"
+    "\022\014\n\004help\030\002 \001(\t\022.\n\004type\030\003 \001(\0162 .io.promet"
+    "heus.client.MetricType\022,\n\006metric\030\004 \003(\0132\034"
+    ".io.prometheus.client.Metric*1\n\nMetricTy"
+    "pe\022\013\n\007COUNTER\020\000\022\t\n\005GAUGE\020\001\022\013\n\007SUMMARY\020\002B"
+    "\026\n\024io.prometheus.client", 783);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "metrics.proto", &protobuf_RegisterTypes);
   LabelPair::default_instance_ = new LabelPair();
@@ -249,6 +275,7 @@ void protobuf_AddDesc_metrics_2eproto() {
   Counter::default_instance_ = new Counter();
   Quantile::default_instance_ = new Quantile();
   Summary::default_instance_ = new Summary();
+  Custom::default_instance_ = new Custom();
   Metric::default_instance_ = new Metric();
   MetricFamily::default_instance_ = new MetricFamily();
   LabelPair::default_instance_->InitAsDefaultInstance();
@@ -256,6 +283,7 @@ void protobuf_AddDesc_metrics_2eproto() {
   Counter::default_instance_->InitAsDefaultInstance();
   Quantile::default_instance_->InitAsDefaultInstance();
   Summary::default_instance_->InitAsDefaultInstance();
+  Custom::default_instance_->InitAsDefaultInstance();
   Metric::default_instance_->InitAsDefaultInstance();
   MetricFamily::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_metrics_2eproto);
@@ -1510,10 +1538,218 @@ void Summary::Swap(Summary* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int Custom::kValueFieldNumber;
+#endif  // !_MSC_VER
+
+Custom::Custom()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Custom::InitAsDefaultInstance() {
+}
+
+Custom::Custom(const Custom& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Custom::SharedCtor() {
+  _cached_size_ = 0;
+  value_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Custom::~Custom() {
+  SharedDtor();
+}
+
+void Custom::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Custom::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Custom::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Custom_descriptor_;
+}
+
+const Custom& Custom::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_metrics_2eproto();
+  return *default_instance_;
+}
+
+Custom* Custom::default_instance_ = NULL;
+
+Custom* Custom::New() const {
+  return new Custom;
+}
+
+void Custom::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    value_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Custom::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional double value = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED64) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &value_)));
+          set_has_value();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Custom::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional double value = 1;
+  if (has_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(1, this->value(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Custom::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional double value = 1;
+  if (has_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(1, this->value(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Custom::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional double value = 1;
+    if (has_value()) {
+      total_size += 1 + 8;
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Custom::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Custom* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Custom*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Custom::MergeFrom(const Custom& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_value()) {
+      set_value(from.value());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Custom::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Custom::CopyFrom(const Custom& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Custom::IsInitialized() const {
+
+  return true;
+}
+
+void Custom::Swap(Custom* other) {
+  if (other != this) {
+    std::swap(value_, other->value_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Custom::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Custom_descriptor_;
+  metadata.reflection = Custom_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int Metric::kLabelFieldNumber;
 const int Metric::kGaugeFieldNumber;
 const int Metric::kCounterFieldNumber;
 const int Metric::kSummaryFieldNumber;
+const int Metric::kCustomFieldNumber;
+const int Metric::kTimestampMsFieldNumber;
 #endif  // !_MSC_VER
 
 Metric::Metric()
@@ -1525,6 +1761,7 @@ void Metric::InitAsDefaultInstance() {
   gauge_ = const_cast< ::io::prometheus::client::Gauge*>(&::io::prometheus::client::Gauge::default_instance());
   counter_ = const_cast< ::io::prometheus::client::Counter*>(&::io::prometheus::client::Counter::default_instance());
   summary_ = const_cast< ::io::prometheus::client::Summary*>(&::io::prometheus::client::Summary::default_instance());
+  custom_ = const_cast< ::io::prometheus::client::Custom*>(&::io::prometheus::client::Custom::default_instance());
 }
 
 Metric::Metric(const Metric& from)
@@ -1538,6 +1775,8 @@ void Metric::SharedCtor() {
   gauge_ = NULL;
   counter_ = NULL;
   summary_ = NULL;
+  custom_ = NULL;
+  timestamp_ms_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1550,6 +1789,7 @@ void Metric::SharedDtor() {
     delete gauge_;
     delete counter_;
     delete summary_;
+    delete custom_;
   }
 }
 
@@ -1585,6 +1825,10 @@ void Metric::Clear() {
     if (has_summary()) {
       if (summary_ != NULL) summary_->::io::prometheus::client::Summary::Clear();
     }
+    if (has_custom()) {
+      if (custom_ != NULL) custom_->::io::prometheus::client::Custom::Clear();
+    }
+    timestamp_ms_ = GOOGLE_LONGLONG(0);
   }
   label_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -1650,6 +1894,36 @@ bool Metric::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(42)) goto parse_custom;
+        break;
+      }
+
+      // optional .io.prometheus.client.Custom custom = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_custom:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_custom()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_timestamp_ms;
+        break;
+      }
+
+      // optional int64 timestamp_ms = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_timestamp_ms:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &timestamp_ms_)));
+          set_has_timestamp_ms();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1696,6 +1970,17 @@ void Metric::SerializeWithCachedSizes(
       4, this->summary(), output);
   }
 
+  // optional .io.prometheus.client.Custom custom = 5;
+  if (has_custom()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->custom(), output);
+  }
+
+  // optional int64 timestamp_ms = 6;
+  if (has_timestamp_ms()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->timestamp_ms(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1732,6 +2017,18 @@ void Metric::SerializeWithCachedSizes(
         4, this->summary(), target);
   }
 
+  // optional .io.prometheus.client.Custom custom = 5;
+  if (has_custom()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        5, this->custom(), target);
+  }
+
+  // optional int64 timestamp_ms = 6;
+  if (has_timestamp_ms()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->timestamp_ms(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -1762,6 +2059,20 @@ int Metric::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->summary());
+    }
+
+    // optional .io.prometheus.client.Custom custom = 5;
+    if (has_custom()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->custom());
+    }
+
+    // optional int64 timestamp_ms = 6;
+    if (has_timestamp_ms()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->timestamp_ms());
     }
 
   }
@@ -1809,6 +2120,12 @@ void Metric::MergeFrom(const Metric& from) {
     if (from.has_summary()) {
       mutable_summary()->::io::prometheus::client::Summary::MergeFrom(from.summary());
     }
+    if (from.has_custom()) {
+      mutable_custom()->::io::prometheus::client::Custom::MergeFrom(from.custom());
+    }
+    if (from.has_timestamp_ms()) {
+      set_timestamp_ms(from.timestamp_ms());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -1836,6 +2153,8 @@ void Metric::Swap(Metric* other) {
     std::swap(gauge_, other->gauge_);
     std::swap(counter_, other->counter_);
     std::swap(summary_, other->summary_);
+    std::swap(custom_, other->custom_);
+    std::swap(timestamp_ms_, other->timestamp_ms_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
