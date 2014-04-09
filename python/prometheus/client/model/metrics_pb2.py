@@ -14,7 +14,7 @@ from google.protobuf import descriptor_pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='metrics.proto',
   package='io.prometheus.client',
-  serialized_pb='\n\rmetrics.proto\x12\x14io.prometheus.client\"(\n\tLabelPair\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x16\n\x05Gauge\x12\r\n\x05value\x18\x01 \x01(\x01\"\x18\n\x07\x43ounter\x12\r\n\x05value\x18\x01 \x01(\x01\"+\n\x08Quantile\x12\x10\n\x08quantile\x18\x01 \x01(\x01\x12\r\n\x05value\x18\x02 \x01(\x01\"e\n\x07Summary\x12\x14\n\x0csample_count\x18\x01 \x01(\x04\x12\x12\n\nsample_sum\x18\x02 \x01(\x01\x12\x30\n\x08quantile\x18\x03 \x03(\x0b\x32\x1e.io.prometheus.client.Quantile\"\xc4\x01\n\x06Metric\x12.\n\x05label\x18\x01 \x03(\x0b\x32\x1f.io.prometheus.client.LabelPair\x12*\n\x05gauge\x18\x02 \x01(\x0b\x32\x1b.io.prometheus.client.Gauge\x12.\n\x07\x63ounter\x18\x03 \x01(\x0b\x32\x1d.io.prometheus.client.Counter\x12.\n\x07summary\x18\x04 \x01(\x0b\x32\x1d.io.prometheus.client.Summary\"\x88\x01\n\x0cMetricFamily\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04help\x18\x02 \x01(\t\x12.\n\x04type\x18\x03 \x01(\x0e\x32 .io.prometheus.client.MetricType\x12,\n\x06metric\x18\x04 \x03(\x0b\x32\x1c.io.prometheus.client.Metric*1\n\nMetricType\x12\x0b\n\x07\x43OUNTER\x10\x00\x12\t\n\x05GAUGE\x10\x01\x12\x0b\n\x07SUMMARY\x10\x02\x42\x16\n\x14io.prometheus.client')
+  serialized_pb='\n\rmetrics.proto\x12\x14io.prometheus.client\"(\n\tLabelPair\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x16\n\x05Gauge\x12\r\n\x05value\x18\x01 \x01(\x01\"\x18\n\x07\x43ounter\x12\r\n\x05value\x18\x01 \x01(\x01\"+\n\x08Quantile\x12\x10\n\x08quantile\x18\x01 \x01(\x01\x12\r\n\x05value\x18\x02 \x01(\x01\"e\n\x07Summary\x12\x14\n\x0csample_count\x18\x01 \x01(\x04\x12\x12\n\nsample_sum\x18\x02 \x01(\x01\x12\x30\n\x08quantile\x18\x03 \x03(\x0b\x32\x1e.io.prometheus.client.Quantile\"\x17\n\x06\x43ustom\x12\r\n\x05value\x18\x01 \x01(\x01\"\x88\x02\n\x06Metric\x12.\n\x05label\x18\x01 \x03(\x0b\x32\x1f.io.prometheus.client.LabelPair\x12*\n\x05gauge\x18\x02 \x01(\x0b\x32\x1b.io.prometheus.client.Gauge\x12.\n\x07\x63ounter\x18\x03 \x01(\x0b\x32\x1d.io.prometheus.client.Counter\x12.\n\x07summary\x18\x04 \x01(\x0b\x32\x1d.io.prometheus.client.Summary\x12,\n\x06\x63ustom\x18\x05 \x01(\x0b\x32\x1c.io.prometheus.client.Custom\x12\x14\n\x0ctimestamp_ms\x18\x06 \x01(\x03\"\x88\x01\n\x0cMetricFamily\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04help\x18\x02 \x01(\t\x12.\n\x04type\x18\x03 \x01(\x0e\x32 .io.prometheus.client.MetricType\x12,\n\x06metric\x18\x04 \x03(\x0b\x32\x1c.io.prometheus.client.Metric*=\n\nMetricType\x12\x0b\n\x07\x43OUNTER\x10\x00\x12\t\n\x05GAUGE\x10\x01\x12\x0b\n\x07SUMMARY\x10\x02\x12\n\n\x06\x43USTOM\x10\x03\x42\x16\n\x14io.prometheus.client')
 
 _METRICTYPE = _descriptor.EnumDescriptor(
   name='MetricType',
@@ -34,17 +34,22 @@ _METRICTYPE = _descriptor.EnumDescriptor(
       name='SUMMARY', index=2, number=2,
       options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CUSTOM', index=3, number=3,
+      options=None,
+      type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=617,
-  serialized_end=666,
+  serialized_start=710,
+  serialized_end=771,
 )
 
 MetricType = enum_type_wrapper.EnumTypeWrapper(_METRICTYPE)
 COUNTER = 0
 GAUGE = 1
 SUMMARY = 2
+CUSTOM = 3
 
 
 
@@ -216,6 +221,34 @@ _SUMMARY = _descriptor.Descriptor(
 )
 
 
+_CUSTOM = _descriptor.Descriptor(
+  name='Custom',
+  full_name='io.prometheus.client.Custom',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='io.prometheus.client.Custom.value', index=0,
+      number=1, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=279,
+  serialized_end=302,
+)
+
+
 _METRIC = _descriptor.Descriptor(
   name='Metric',
   full_name='io.prometheus.client.Metric',
@@ -251,6 +284,20 @@ _METRIC = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='custom', full_name='io.prometheus.client.Metric.custom', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='timestamp_ms', full_name='io.prometheus.client.Metric.timestamp_ms', index=5,
+      number=6, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -260,8 +307,8 @@ _METRIC = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=280,
-  serialized_end=476,
+  serialized_start=305,
+  serialized_end=569,
 )
 
 
@@ -309,8 +356,8 @@ _METRICFAMILY = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=479,
-  serialized_end=615,
+  serialized_start=572,
+  serialized_end=708,
 )
 
 _SUMMARY.fields_by_name['quantile'].message_type = _QUANTILE
@@ -318,6 +365,7 @@ _METRIC.fields_by_name['label'].message_type = _LABELPAIR
 _METRIC.fields_by_name['gauge'].message_type = _GAUGE
 _METRIC.fields_by_name['counter'].message_type = _COUNTER
 _METRIC.fields_by_name['summary'].message_type = _SUMMARY
+_METRIC.fields_by_name['custom'].message_type = _CUSTOM
 _METRICFAMILY.fields_by_name['type'].enum_type = _METRICTYPE
 _METRICFAMILY.fields_by_name['metric'].message_type = _METRIC
 DESCRIPTOR.message_types_by_name['LabelPair'] = _LABELPAIR
@@ -325,6 +373,7 @@ DESCRIPTOR.message_types_by_name['Gauge'] = _GAUGE
 DESCRIPTOR.message_types_by_name['Counter'] = _COUNTER
 DESCRIPTOR.message_types_by_name['Quantile'] = _QUANTILE
 DESCRIPTOR.message_types_by_name['Summary'] = _SUMMARY
+DESCRIPTOR.message_types_by_name['Custom'] = _CUSTOM
 DESCRIPTOR.message_types_by_name['Metric'] = _METRIC
 DESCRIPTOR.message_types_by_name['MetricFamily'] = _METRICFAMILY
 
@@ -357,6 +406,12 @@ class Summary(_message.Message):
   DESCRIPTOR = _SUMMARY
 
   # @@protoc_insertion_point(class_scope:io.prometheus.client.Summary)
+
+class Custom(_message.Message):
+  __metaclass__ = _reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _CUSTOM
+
+  # @@protoc_insertion_point(class_scope:io.prometheus.client.Custom)
 
 class Metric(_message.Message):
   __metaclass__ = _reflection.GeneratedProtocolMessageType

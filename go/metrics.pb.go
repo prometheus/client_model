@@ -2,6 +2,22 @@
 // source: metrics.proto
 // DO NOT EDIT!
 
+/*
+Package io_prometheus_client is a generated protocol buffer package.
+
+It is generated from these files:
+	metrics.proto
+
+It has these top-level messages:
+	LabelPair
+	Gauge
+	Counter
+	Quantile
+	Summary
+	Custom
+	Metric
+	MetricFamily
+*/
 package io_prometheus_client
 
 import proto "code.google.com/p/goprotobuf/proto"
@@ -19,17 +35,20 @@ const (
 	MetricType_COUNTER MetricType = 0
 	MetricType_GAUGE   MetricType = 1
 	MetricType_SUMMARY MetricType = 2
+	MetricType_CUSTOM  MetricType = 3
 )
 
 var MetricType_name = map[int32]string{
 	0: "COUNTER",
 	1: "GAUGE",
 	2: "SUMMARY",
+	3: "CUSTOM",
 }
 var MetricType_value = map[string]int32{
 	"COUNTER": 0,
 	"GAUGE":   1,
 	"SUMMARY": 2,
+	"CUSTOM":  3,
 }
 
 func (x MetricType) Enum() *MetricType {
@@ -39,9 +58,6 @@ func (x MetricType) Enum() *MetricType {
 }
 func (x MetricType) String() string {
 	return proto.EnumName(MetricType_name, int32(x))
-}
-func (x MetricType) MarshalJSON() ([]byte, error) {
-	return json.Marshal(x.String())
 }
 func (x *MetricType) UnmarshalJSON(data []byte) error {
 	value, err := proto.UnmarshalJSONEnum(MetricType_value, data, "MetricType")
@@ -164,11 +180,29 @@ func (m *Summary) GetQuantile() []*Quantile {
 	return nil
 }
 
+type Custom struct {
+	Value            *float64 `protobuf:"fixed64,1,opt,name=value" json:"value,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
+}
+
+func (m *Custom) Reset()         { *m = Custom{} }
+func (m *Custom) String() string { return proto.CompactTextString(m) }
+func (*Custom) ProtoMessage()    {}
+
+func (m *Custom) GetValue() float64 {
+	if m != nil && m.Value != nil {
+		return *m.Value
+	}
+	return 0
+}
+
 type Metric struct {
 	Label            []*LabelPair `protobuf:"bytes,1,rep,name=label" json:"label,omitempty"`
 	Gauge            *Gauge       `protobuf:"bytes,2,opt,name=gauge" json:"gauge,omitempty"`
 	Counter          *Counter     `protobuf:"bytes,3,opt,name=counter" json:"counter,omitempty"`
 	Summary          *Summary     `protobuf:"bytes,4,opt,name=summary" json:"summary,omitempty"`
+	Custom           *Custom      `protobuf:"bytes,5,opt,name=custom" json:"custom,omitempty"`
+	TimestampMs      *int64       `protobuf:"varint,6,opt,name=timestamp_ms" json:"timestamp_ms,omitempty"`
 	XXX_unrecognized []byte       `json:"-"`
 }
 
@@ -204,6 +238,20 @@ func (m *Metric) GetSummary() *Summary {
 	return nil
 }
 
+func (m *Metric) GetCustom() *Custom {
+	if m != nil {
+		return m.Custom
+	}
+	return nil
+}
+
+func (m *Metric) GetTimestampMs() int64 {
+	if m != nil && m.TimestampMs != nil {
+		return *m.TimestampMs
+	}
+	return 0
+}
+
 type MetricFamily struct {
 	Name             *string     `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
 	Help             *string     `protobuf:"bytes,2,opt,name=help" json:"help,omitempty"`
@@ -234,7 +282,7 @@ func (m *MetricFamily) GetType() MetricType {
 	if m != nil && m.Type != nil {
 		return *m.Type
 	}
-	return 0
+	return MetricType_COUNTER
 }
 
 func (m *MetricFamily) GetMetric() []*Metric {

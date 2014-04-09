@@ -25,6 +25,10 @@ public final class Metrics {
      * <code>SUMMARY = 2;</code>
      */
     SUMMARY(2, 2),
+    /**
+     * <code>CUSTOM = 3;</code>
+     */
+    CUSTOM(3, 3),
     ;
 
     /**
@@ -39,6 +43,10 @@ public final class Metrics {
      * <code>SUMMARY = 2;</code>
      */
     public static final int SUMMARY_VALUE = 2;
+    /**
+     * <code>CUSTOM = 3;</code>
+     */
+    public static final int CUSTOM_VALUE = 3;
 
 
     public final int getNumber() { return value; }
@@ -48,6 +56,7 @@ public final class Metrics {
         case 0: return COUNTER;
         case 1: return GAUGE;
         case 2: return SUMMARY;
+        case 3: return CUSTOM;
         default: return null;
       }
     }
@@ -2834,6 +2843,402 @@ public final class Metrics {
     // @@protoc_insertion_point(class_scope:io.prometheus.client.Summary)
   }
 
+  public interface CustomOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional double value = 1;
+    /**
+     * <code>optional double value = 1;</code>
+     */
+    boolean hasValue();
+    /**
+     * <code>optional double value = 1;</code>
+     */
+    double getValue();
+  }
+  /**
+   * Protobuf type {@code io.prometheus.client.Custom}
+   */
+  public static final class Custom extends
+      com.google.protobuf.GeneratedMessage
+      implements CustomOrBuilder {
+    // Use Custom.newBuilder() to construct.
+    private Custom(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private Custom(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final Custom defaultInstance;
+    public static Custom getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public Custom getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Custom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 9: {
+              bitField0_ |= 0x00000001;
+              value_ = input.readDouble();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.prometheus.client.Metrics.internal_static_io_prometheus_client_Custom_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.prometheus.client.Metrics.internal_static_io_prometheus_client_Custom_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.prometheus.client.Metrics.Custom.class, io.prometheus.client.Metrics.Custom.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<Custom> PARSER =
+        new com.google.protobuf.AbstractParser<Custom>() {
+      public Custom parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Custom(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Custom> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional double value = 1;
+    public static final int VALUE_FIELD_NUMBER = 1;
+    private double value_;
+    /**
+     * <code>optional double value = 1;</code>
+     */
+    public boolean hasValue() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional double value = 1;</code>
+     */
+    public double getValue() {
+      return value_;
+    }
+
+    private void initFields() {
+      value_ = 0D;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeDouble(1, value_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(1, value_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static io.prometheus.client.Metrics.Custom parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.prometheus.client.Metrics.Custom parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.prometheus.client.Metrics.Custom parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.prometheus.client.Metrics.Custom parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.prometheus.client.Metrics.Custom parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static io.prometheus.client.Metrics.Custom parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static io.prometheus.client.Metrics.Custom parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static io.prometheus.client.Metrics.Custom parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static io.prometheus.client.Metrics.Custom parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static io.prometheus.client.Metrics.Custom parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(io.prometheus.client.Metrics.Custom prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code io.prometheus.client.Custom}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements io.prometheus.client.Metrics.CustomOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.prometheus.client.Metrics.internal_static_io_prometheus_client_Custom_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.prometheus.client.Metrics.internal_static_io_prometheus_client_Custom_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.prometheus.client.Metrics.Custom.class, io.prometheus.client.Metrics.Custom.Builder.class);
+      }
+
+      // Construct using io.prometheus.client.Metrics.Custom.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        value_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.prometheus.client.Metrics.internal_static_io_prometheus_client_Custom_descriptor;
+      }
+
+      public io.prometheus.client.Metrics.Custom getDefaultInstanceForType() {
+        return io.prometheus.client.Metrics.Custom.getDefaultInstance();
+      }
+
+      public io.prometheus.client.Metrics.Custom build() {
+        io.prometheus.client.Metrics.Custom result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public io.prometheus.client.Metrics.Custom buildPartial() {
+        io.prometheus.client.Metrics.Custom result = new io.prometheus.client.Metrics.Custom(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.value_ = value_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.prometheus.client.Metrics.Custom) {
+          return mergeFrom((io.prometheus.client.Metrics.Custom)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.prometheus.client.Metrics.Custom other) {
+        if (other == io.prometheus.client.Metrics.Custom.getDefaultInstance()) return this;
+        if (other.hasValue()) {
+          setValue(other.getValue());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.prometheus.client.Metrics.Custom parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.prometheus.client.Metrics.Custom) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional double value = 1;
+      private double value_ ;
+      /**
+       * <code>optional double value = 1;</code>
+       */
+      public boolean hasValue() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional double value = 1;</code>
+       */
+      public double getValue() {
+        return value_;
+      }
+      /**
+       * <code>optional double value = 1;</code>
+       */
+      public Builder setValue(double value) {
+        bitField0_ |= 0x00000001;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double value = 1;</code>
+       */
+      public Builder clearValue() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        value_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:io.prometheus.client.Custom)
+    }
+
+    static {
+      defaultInstance = new Custom(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:io.prometheus.client.Custom)
+  }
+
   public interface MetricOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
@@ -2903,6 +3308,30 @@ public final class Metrics {
      * <code>optional .io.prometheus.client.Summary summary = 4;</code>
      */
     io.prometheus.client.Metrics.SummaryOrBuilder getSummaryOrBuilder();
+
+    // optional .io.prometheus.client.Custom custom = 5;
+    /**
+     * <code>optional .io.prometheus.client.Custom custom = 5;</code>
+     */
+    boolean hasCustom();
+    /**
+     * <code>optional .io.prometheus.client.Custom custom = 5;</code>
+     */
+    io.prometheus.client.Metrics.Custom getCustom();
+    /**
+     * <code>optional .io.prometheus.client.Custom custom = 5;</code>
+     */
+    io.prometheus.client.Metrics.CustomOrBuilder getCustomOrBuilder();
+
+    // optional int64 timestamp_ms = 6;
+    /**
+     * <code>optional int64 timestamp_ms = 6;</code>
+     */
+    boolean hasTimestampMs();
+    /**
+     * <code>optional int64 timestamp_ms = 6;</code>
+     */
+    long getTimestampMs();
   }
   /**
    * Protobuf type {@code io.prometheus.client.Metric}
@@ -3000,6 +3429,24 @@ public final class Metrics {
                 summary_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000004;
+              break;
+            }
+            case 42: {
+              io.prometheus.client.Metrics.Custom.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = custom_.toBuilder();
+              }
+              custom_ = input.readMessage(io.prometheus.client.Metrics.Custom.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(custom_);
+                custom_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000010;
+              timestampMs_ = input.readInt64();
               break;
             }
           }
@@ -3147,11 +3594,51 @@ public final class Metrics {
       return summary_;
     }
 
+    // optional .io.prometheus.client.Custom custom = 5;
+    public static final int CUSTOM_FIELD_NUMBER = 5;
+    private io.prometheus.client.Metrics.Custom custom_;
+    /**
+     * <code>optional .io.prometheus.client.Custom custom = 5;</code>
+     */
+    public boolean hasCustom() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional .io.prometheus.client.Custom custom = 5;</code>
+     */
+    public io.prometheus.client.Metrics.Custom getCustom() {
+      return custom_;
+    }
+    /**
+     * <code>optional .io.prometheus.client.Custom custom = 5;</code>
+     */
+    public io.prometheus.client.Metrics.CustomOrBuilder getCustomOrBuilder() {
+      return custom_;
+    }
+
+    // optional int64 timestamp_ms = 6;
+    public static final int TIMESTAMP_MS_FIELD_NUMBER = 6;
+    private long timestampMs_;
+    /**
+     * <code>optional int64 timestamp_ms = 6;</code>
+     */
+    public boolean hasTimestampMs() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional int64 timestamp_ms = 6;</code>
+     */
+    public long getTimestampMs() {
+      return timestampMs_;
+    }
+
     private void initFields() {
       label_ = java.util.Collections.emptyList();
       gauge_ = io.prometheus.client.Metrics.Gauge.getDefaultInstance();
       counter_ = io.prometheus.client.Metrics.Counter.getDefaultInstance();
       summary_ = io.prometheus.client.Metrics.Summary.getDefaultInstance();
+      custom_ = io.prometheus.client.Metrics.Custom.getDefaultInstance();
+      timestampMs_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -3177,6 +3664,12 @@ public final class Metrics {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeMessage(4, summary_);
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(5, custom_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt64(6, timestampMs_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -3201,6 +3694,14 @@ public final class Metrics {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, summary_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, custom_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, timestampMs_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -3314,6 +3815,7 @@ public final class Metrics {
           getGaugeFieldBuilder();
           getCounterFieldBuilder();
           getSummaryFieldBuilder();
+          getCustomFieldBuilder();
         }
       }
       private static Builder create() {
@@ -3346,6 +3848,14 @@ public final class Metrics {
           summaryBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
+        if (customBuilder_ == null) {
+          custom_ = io.prometheus.client.Metrics.Custom.getDefaultInstance();
+        } else {
+          customBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        timestampMs_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -3407,6 +3917,18 @@ public final class Metrics {
         } else {
           result.summary_ = summaryBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (customBuilder_ == null) {
+          result.custom_ = custom_;
+        } else {
+          result.custom_ = customBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.timestampMs_ = timestampMs_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -3457,6 +3979,12 @@ public final class Metrics {
         }
         if (other.hasSummary()) {
           mergeSummary(other.getSummary());
+        }
+        if (other.hasCustom()) {
+          mergeCustom(other.getCustom());
+        }
+        if (other.hasTimestampMs()) {
+          setTimestampMs(other.getTimestampMs());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -4074,6 +4602,156 @@ public final class Metrics {
           summary_ = null;
         }
         return summaryBuilder_;
+      }
+
+      // optional .io.prometheus.client.Custom custom = 5;
+      private io.prometheus.client.Metrics.Custom custom_ = io.prometheus.client.Metrics.Custom.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          io.prometheus.client.Metrics.Custom, io.prometheus.client.Metrics.Custom.Builder, io.prometheus.client.Metrics.CustomOrBuilder> customBuilder_;
+      /**
+       * <code>optional .io.prometheus.client.Custom custom = 5;</code>
+       */
+      public boolean hasCustom() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional .io.prometheus.client.Custom custom = 5;</code>
+       */
+      public io.prometheus.client.Metrics.Custom getCustom() {
+        if (customBuilder_ == null) {
+          return custom_;
+        } else {
+          return customBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .io.prometheus.client.Custom custom = 5;</code>
+       */
+      public Builder setCustom(io.prometheus.client.Metrics.Custom value) {
+        if (customBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          custom_ = value;
+          onChanged();
+        } else {
+          customBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .io.prometheus.client.Custom custom = 5;</code>
+       */
+      public Builder setCustom(
+          io.prometheus.client.Metrics.Custom.Builder builderForValue) {
+        if (customBuilder_ == null) {
+          custom_ = builderForValue.build();
+          onChanged();
+        } else {
+          customBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .io.prometheus.client.Custom custom = 5;</code>
+       */
+      public Builder mergeCustom(io.prometheus.client.Metrics.Custom value) {
+        if (customBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              custom_ != io.prometheus.client.Metrics.Custom.getDefaultInstance()) {
+            custom_ =
+              io.prometheus.client.Metrics.Custom.newBuilder(custom_).mergeFrom(value).buildPartial();
+          } else {
+            custom_ = value;
+          }
+          onChanged();
+        } else {
+          customBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .io.prometheus.client.Custom custom = 5;</code>
+       */
+      public Builder clearCustom() {
+        if (customBuilder_ == null) {
+          custom_ = io.prometheus.client.Metrics.Custom.getDefaultInstance();
+          onChanged();
+        } else {
+          customBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       * <code>optional .io.prometheus.client.Custom custom = 5;</code>
+       */
+      public io.prometheus.client.Metrics.Custom.Builder getCustomBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getCustomFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .io.prometheus.client.Custom custom = 5;</code>
+       */
+      public io.prometheus.client.Metrics.CustomOrBuilder getCustomOrBuilder() {
+        if (customBuilder_ != null) {
+          return customBuilder_.getMessageOrBuilder();
+        } else {
+          return custom_;
+        }
+      }
+      /**
+       * <code>optional .io.prometheus.client.Custom custom = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          io.prometheus.client.Metrics.Custom, io.prometheus.client.Metrics.Custom.Builder, io.prometheus.client.Metrics.CustomOrBuilder> 
+          getCustomFieldBuilder() {
+        if (customBuilder_ == null) {
+          customBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              io.prometheus.client.Metrics.Custom, io.prometheus.client.Metrics.Custom.Builder, io.prometheus.client.Metrics.CustomOrBuilder>(
+                  custom_,
+                  getParentForChildren(),
+                  isClean());
+          custom_ = null;
+        }
+        return customBuilder_;
+      }
+
+      // optional int64 timestamp_ms = 6;
+      private long timestampMs_ ;
+      /**
+       * <code>optional int64 timestamp_ms = 6;</code>
+       */
+      public boolean hasTimestampMs() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional int64 timestamp_ms = 6;</code>
+       */
+      public long getTimestampMs() {
+        return timestampMs_;
+      }
+      /**
+       * <code>optional int64 timestamp_ms = 6;</code>
+       */
+      public Builder setTimestampMs(long value) {
+        bitField0_ |= 0x00000020;
+        timestampMs_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 timestamp_ms = 6;</code>
+       */
+      public Builder clearTimestampMs() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        timestampMs_ = 0L;
+        onChanged();
+        return this;
       }
 
       // @@protoc_insertion_point(builder_scope:io.prometheus.client.Metric)
@@ -5192,6 +5870,11 @@ public final class Metrics {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_io_prometheus_client_Summary_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_io_prometheus_client_Custom_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_io_prometheus_client_Custom_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_io_prometheus_client_Metric_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -5216,18 +5899,20 @@ public final class Metrics {
       "lue\030\001 \001(\001\"+\n\010Quantile\022\020\n\010quantile\030\001 \001(\001\022" +
       "\r\n\005value\030\002 \001(\001\"e\n\007Summary\022\024\n\014sample_coun" +
       "t\030\001 \001(\004\022\022\n\nsample_sum\030\002 \001(\001\0220\n\010quantile\030" +
-      "\003 \003(\0132\036.io.prometheus.client.Quantile\"\304\001" +
-      "\n\006Metric\022.\n\005label\030\001 \003(\0132\037.io.prometheus." +
-      "client.LabelPair\022*\n\005gauge\030\002 \001(\0132\033.io.pro" +
-      "metheus.client.Gauge\022.\n\007counter\030\003 \001(\0132\035.",
-      "io.prometheus.client.Counter\022.\n\007summary\030" +
-      "\004 \001(\0132\035.io.prometheus.client.Summary\"\210\001\n" +
-      "\014MetricFamily\022\014\n\004name\030\001 \001(\t\022\014\n\004help\030\002 \001(" +
-      "\t\022.\n\004type\030\003 \001(\0162 .io.prometheus.client.M" +
-      "etricType\022,\n\006metric\030\004 \003(\0132\034.io.prometheu" +
-      "s.client.Metric*1\n\nMetricType\022\013\n\007COUNTER" +
-      "\020\000\022\t\n\005GAUGE\020\001\022\013\n\007SUMMARY\020\002B\026\n\024io.prometh" +
-      "eus.client"
+      "\003 \003(\0132\036.io.prometheus.client.Quantile\"\027\n" +
+      "\006Custom\022\r\n\005value\030\001 \001(\001\"\210\002\n\006Metric\022.\n\005lab" +
+      "el\030\001 \003(\0132\037.io.prometheus.client.LabelPai" +
+      "r\022*\n\005gauge\030\002 \001(\0132\033.io.prometheus.client.",
+      "Gauge\022.\n\007counter\030\003 \001(\0132\035.io.prometheus.c" +
+      "lient.Counter\022.\n\007summary\030\004 \001(\0132\035.io.prom" +
+      "etheus.client.Summary\022,\n\006custom\030\005 \001(\0132\034." +
+      "io.prometheus.client.Custom\022\024\n\014timestamp" +
+      "_ms\030\006 \001(\003\"\210\001\n\014MetricFamily\022\014\n\004name\030\001 \001(\t" +
+      "\022\014\n\004help\030\002 \001(\t\022.\n\004type\030\003 \001(\0162 .io.promet" +
+      "heus.client.MetricType\022,\n\006metric\030\004 \003(\0132\034" +
+      ".io.prometheus.client.Metric*=\n\nMetricTy" +
+      "pe\022\013\n\007COUNTER\020\000\022\t\n\005GAUGE\020\001\022\013\n\007SUMMARY\020\002\022" +
+      "\n\n\006CUSTOM\020\003B\026\n\024io.prometheus.client"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -5264,14 +5949,20 @@ public final class Metrics {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_io_prometheus_client_Summary_descriptor,
               new java.lang.String[] { "SampleCount", "SampleSum", "Quantile", });
-          internal_static_io_prometheus_client_Metric_descriptor =
+          internal_static_io_prometheus_client_Custom_descriptor =
             getDescriptor().getMessageTypes().get(5);
+          internal_static_io_prometheus_client_Custom_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_io_prometheus_client_Custom_descriptor,
+              new java.lang.String[] { "Value", });
+          internal_static_io_prometheus_client_Metric_descriptor =
+            getDescriptor().getMessageTypes().get(6);
           internal_static_io_prometheus_client_Metric_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_io_prometheus_client_Metric_descriptor,
-              new java.lang.String[] { "Label", "Gauge", "Counter", "Summary", });
+              new java.lang.String[] { "Label", "Gauge", "Counter", "Summary", "Custom", "TimestampMs", });
           internal_static_io_prometheus_client_MetricFamily_descriptor =
-            getDescriptor().getMessageTypes().get(6);
+            getDescriptor().getMessageTypes().get(7);
           internal_static_io_prometheus_client_MetricFamily_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_io_prometheus_client_MetricFamily_descriptor,

@@ -41,17 +41,19 @@ class Gauge;
 class Counter;
 class Quantile;
 class Summary;
+class Custom;
 class Metric;
 class MetricFamily;
 
 enum MetricType {
   COUNTER = 0,
   GAUGE = 1,
-  SUMMARY = 2
+  SUMMARY = 2,
+  CUSTOM = 3
 };
 bool MetricType_IsValid(int value);
 const MetricType MetricType_MIN = COUNTER;
-const MetricType MetricType_MAX = SUMMARY;
+const MetricType MetricType_MAX = CUSTOM;
 const int MetricType_ARRAYSIZE = MetricType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* MetricType_descriptor();
@@ -529,6 +531,88 @@ class Summary : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class Custom : public ::google::protobuf::Message {
+ public:
+  Custom();
+  virtual ~Custom();
+
+  Custom(const Custom& from);
+
+  inline Custom& operator=(const Custom& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Custom& default_instance();
+
+  void Swap(Custom* other);
+
+  // implements Message ----------------------------------------------
+
+  Custom* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Custom& from);
+  void MergeFrom(const Custom& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional double value = 1;
+  inline bool has_value() const;
+  inline void clear_value();
+  static const int kValueFieldNumber = 1;
+  inline double value() const;
+  inline void set_value(double value);
+
+  // @@protoc_insertion_point(class_scope:io.prometheus.client.Custom)
+ private:
+  inline void set_has_value();
+  inline void clear_has_value();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  double value_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_metrics_2eproto();
+  friend void protobuf_AssignDesc_metrics_2eproto();
+  friend void protobuf_ShutdownFile_metrics_2eproto();
+
+  void InitAsDefaultInstance();
+  static Custom* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class Metric : public ::google::protobuf::Message {
  public:
   Metric();
@@ -622,6 +706,22 @@ class Metric : public ::google::protobuf::Message {
   inline ::io::prometheus::client::Summary* release_summary();
   inline void set_allocated_summary(::io::prometheus::client::Summary* summary);
 
+  // optional .io.prometheus.client.Custom custom = 5;
+  inline bool has_custom() const;
+  inline void clear_custom();
+  static const int kCustomFieldNumber = 5;
+  inline const ::io::prometheus::client::Custom& custom() const;
+  inline ::io::prometheus::client::Custom* mutable_custom();
+  inline ::io::prometheus::client::Custom* release_custom();
+  inline void set_allocated_custom(::io::prometheus::client::Custom* custom);
+
+  // optional int64 timestamp_ms = 6;
+  inline bool has_timestamp_ms() const;
+  inline void clear_timestamp_ms();
+  static const int kTimestampMsFieldNumber = 6;
+  inline ::google::protobuf::int64 timestamp_ms() const;
+  inline void set_timestamp_ms(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:io.prometheus.client.Metric)
  private:
   inline void set_has_gauge();
@@ -630,6 +730,10 @@ class Metric : public ::google::protobuf::Message {
   inline void clear_has_counter();
   inline void set_has_summary();
   inline void clear_has_summary();
+  inline void set_has_custom();
+  inline void clear_has_custom();
+  inline void set_has_timestamp_ms();
+  inline void clear_has_timestamp_ms();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -637,9 +741,11 @@ class Metric : public ::google::protobuf::Message {
   ::io::prometheus::client::Gauge* gauge_;
   ::io::prometheus::client::Counter* counter_;
   ::io::prometheus::client::Summary* summary_;
+  ::io::prometheus::client::Custom* custom_;
+  ::google::protobuf::int64 timestamp_ms_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_metrics_2eproto();
   friend void protobuf_AssignDesc_metrics_2eproto();
@@ -1095,6 +1201,32 @@ Summary::mutable_quantile() {
 
 // -------------------------------------------------------------------
 
+// Custom
+
+// optional double value = 1;
+inline bool Custom::has_value() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Custom::set_has_value() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Custom::clear_has_value() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Custom::clear_value() {
+  value_ = 0;
+  clear_has_value();
+}
+inline double Custom::value() const {
+  return value_;
+}
+inline void Custom::set_value(double value) {
+  set_has_value();
+  value_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // Metric
 
 // repeated .io.prometheus.client.LabelPair label = 1;
@@ -1234,6 +1366,66 @@ inline void Metric::set_allocated_summary(::io::prometheus::client::Summary* sum
   } else {
     clear_has_summary();
   }
+}
+
+// optional .io.prometheus.client.Custom custom = 5;
+inline bool Metric::has_custom() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void Metric::set_has_custom() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Metric::clear_has_custom() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void Metric::clear_custom() {
+  if (custom_ != NULL) custom_->::io::prometheus::client::Custom::Clear();
+  clear_has_custom();
+}
+inline const ::io::prometheus::client::Custom& Metric::custom() const {
+  return custom_ != NULL ? *custom_ : *default_instance_->custom_;
+}
+inline ::io::prometheus::client::Custom* Metric::mutable_custom() {
+  set_has_custom();
+  if (custom_ == NULL) custom_ = new ::io::prometheus::client::Custom;
+  return custom_;
+}
+inline ::io::prometheus::client::Custom* Metric::release_custom() {
+  clear_has_custom();
+  ::io::prometheus::client::Custom* temp = custom_;
+  custom_ = NULL;
+  return temp;
+}
+inline void Metric::set_allocated_custom(::io::prometheus::client::Custom* custom) {
+  delete custom_;
+  custom_ = custom;
+  if (custom) {
+    set_has_custom();
+  } else {
+    clear_has_custom();
+  }
+}
+
+// optional int64 timestamp_ms = 6;
+inline bool Metric::has_timestamp_ms() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void Metric::set_has_timestamp_ms() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void Metric::clear_has_timestamp_ms() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void Metric::clear_timestamp_ms() {
+  timestamp_ms_ = GOOGLE_LONGLONG(0);
+  clear_has_timestamp_ms();
+}
+inline ::google::protobuf::int64 Metric::timestamp_ms() const {
+  return timestamp_ms_;
+}
+inline void Metric::set_timestamp_ms(::google::protobuf::int64 value) {
+  set_has_timestamp_ms();
+  timestamp_ms_ = value;
 }
 
 // -------------------------------------------------------------------
