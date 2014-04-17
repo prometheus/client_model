@@ -14,7 +14,7 @@ It has these top-level messages:
 	Counter
 	Quantile
 	Summary
-	Custom
+	Untyped
 	Metric
 	MetricFamily
 */
@@ -35,20 +35,20 @@ const (
 	MetricType_COUNTER MetricType = 0
 	MetricType_GAUGE   MetricType = 1
 	MetricType_SUMMARY MetricType = 2
-	MetricType_CUSTOM  MetricType = 3
+	MetricType_UNTYPED MetricType = 3
 )
 
 var MetricType_name = map[int32]string{
 	0: "COUNTER",
 	1: "GAUGE",
 	2: "SUMMARY",
-	3: "CUSTOM",
+	3: "UNTYPED",
 }
 var MetricType_value = map[string]int32{
 	"COUNTER": 0,
 	"GAUGE":   1,
 	"SUMMARY": 2,
-	"CUSTOM":  3,
+	"UNTYPED": 3,
 }
 
 func (x MetricType) Enum() *MetricType {
@@ -180,16 +180,16 @@ func (m *Summary) GetQuantile() []*Quantile {
 	return nil
 }
 
-type Custom struct {
+type Untyped struct {
 	Value            *float64 `protobuf:"fixed64,1,opt,name=value" json:"value,omitempty"`
 	XXX_unrecognized []byte   `json:"-"`
 }
 
-func (m *Custom) Reset()         { *m = Custom{} }
-func (m *Custom) String() string { return proto.CompactTextString(m) }
-func (*Custom) ProtoMessage()    {}
+func (m *Untyped) Reset()         { *m = Untyped{} }
+func (m *Untyped) String() string { return proto.CompactTextString(m) }
+func (*Untyped) ProtoMessage()    {}
 
-func (m *Custom) GetValue() float64 {
+func (m *Untyped) GetValue() float64 {
 	if m != nil && m.Value != nil {
 		return *m.Value
 	}
@@ -201,7 +201,7 @@ type Metric struct {
 	Gauge            *Gauge       `protobuf:"bytes,2,opt,name=gauge" json:"gauge,omitempty"`
 	Counter          *Counter     `protobuf:"bytes,3,opt,name=counter" json:"counter,omitempty"`
 	Summary          *Summary     `protobuf:"bytes,4,opt,name=summary" json:"summary,omitempty"`
-	Custom           *Custom      `protobuf:"bytes,5,opt,name=custom" json:"custom,omitempty"`
+	Untyped          *Untyped     `protobuf:"bytes,5,opt,name=untyped" json:"untyped,omitempty"`
 	TimestampMs      *int64       `protobuf:"varint,6,opt,name=timestamp_ms" json:"timestamp_ms,omitempty"`
 	XXX_unrecognized []byte       `json:"-"`
 }
@@ -238,9 +238,9 @@ func (m *Metric) GetSummary() *Summary {
 	return nil
 }
 
-func (m *Metric) GetCustom() *Custom {
+func (m *Metric) GetUntyped() *Untyped {
 	if m != nil {
-		return m.Custom
+		return m.Untyped
 	}
 	return nil
 }

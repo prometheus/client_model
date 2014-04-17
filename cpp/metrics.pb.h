@@ -41,7 +41,7 @@ class Gauge;
 class Counter;
 class Quantile;
 class Summary;
-class Custom;
+class Untyped;
 class Metric;
 class MetricFamily;
 
@@ -49,11 +49,11 @@ enum MetricType {
   COUNTER = 0,
   GAUGE = 1,
   SUMMARY = 2,
-  CUSTOM = 3
+  UNTYPED = 3
 };
 bool MetricType_IsValid(int value);
 const MetricType MetricType_MIN = COUNTER;
-const MetricType MetricType_MAX = CUSTOM;
+const MetricType MetricType_MAX = UNTYPED;
 const int MetricType_ARRAYSIZE = MetricType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* MetricType_descriptor();
@@ -531,14 +531,14 @@ class Summary : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class Custom : public ::google::protobuf::Message {
+class Untyped : public ::google::protobuf::Message {
  public:
-  Custom();
-  virtual ~Custom();
+  Untyped();
+  virtual ~Untyped();
 
-  Custom(const Custom& from);
+  Untyped(const Untyped& from);
 
-  inline Custom& operator=(const Custom& from) {
+  inline Untyped& operator=(const Untyped& from) {
     CopyFrom(from);
     return *this;
   }
@@ -552,17 +552,17 @@ class Custom : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Custom& default_instance();
+  static const Untyped& default_instance();
 
-  void Swap(Custom* other);
+  void Swap(Untyped* other);
 
   // implements Message ----------------------------------------------
 
-  Custom* New() const;
+  Untyped* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Custom& from);
-  void MergeFrom(const Custom& from);
+  void CopyFrom(const Untyped& from);
+  void MergeFrom(const Untyped& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -592,7 +592,7 @@ class Custom : public ::google::protobuf::Message {
   inline double value() const;
   inline void set_value(double value);
 
-  // @@protoc_insertion_point(class_scope:io.prometheus.client.Custom)
+  // @@protoc_insertion_point(class_scope:io.prometheus.client.Untyped)
  private:
   inline void set_has_value();
   inline void clear_has_value();
@@ -609,7 +609,7 @@ class Custom : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_metrics_2eproto();
 
   void InitAsDefaultInstance();
-  static Custom* default_instance_;
+  static Untyped* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -706,14 +706,14 @@ class Metric : public ::google::protobuf::Message {
   inline ::io::prometheus::client::Summary* release_summary();
   inline void set_allocated_summary(::io::prometheus::client::Summary* summary);
 
-  // optional .io.prometheus.client.Custom custom = 5;
-  inline bool has_custom() const;
-  inline void clear_custom();
-  static const int kCustomFieldNumber = 5;
-  inline const ::io::prometheus::client::Custom& custom() const;
-  inline ::io::prometheus::client::Custom* mutable_custom();
-  inline ::io::prometheus::client::Custom* release_custom();
-  inline void set_allocated_custom(::io::prometheus::client::Custom* custom);
+  // optional .io.prometheus.client.Untyped untyped = 5;
+  inline bool has_untyped() const;
+  inline void clear_untyped();
+  static const int kUntypedFieldNumber = 5;
+  inline const ::io::prometheus::client::Untyped& untyped() const;
+  inline ::io::prometheus::client::Untyped* mutable_untyped();
+  inline ::io::prometheus::client::Untyped* release_untyped();
+  inline void set_allocated_untyped(::io::prometheus::client::Untyped* untyped);
 
   // optional int64 timestamp_ms = 6;
   inline bool has_timestamp_ms() const;
@@ -730,8 +730,8 @@ class Metric : public ::google::protobuf::Message {
   inline void clear_has_counter();
   inline void set_has_summary();
   inline void clear_has_summary();
-  inline void set_has_custom();
-  inline void clear_has_custom();
+  inline void set_has_untyped();
+  inline void clear_has_untyped();
   inline void set_has_timestamp_ms();
   inline void clear_has_timestamp_ms();
 
@@ -741,7 +741,7 @@ class Metric : public ::google::protobuf::Message {
   ::io::prometheus::client::Gauge* gauge_;
   ::io::prometheus::client::Counter* counter_;
   ::io::prometheus::client::Summary* summary_;
-  ::io::prometheus::client::Custom* custom_;
+  ::io::prometheus::client::Untyped* untyped_;
   ::google::protobuf::int64 timestamp_ms_;
 
   mutable int _cached_size_;
@@ -1201,26 +1201,26 @@ Summary::mutable_quantile() {
 
 // -------------------------------------------------------------------
 
-// Custom
+// Untyped
 
 // optional double value = 1;
-inline bool Custom::has_value() const {
+inline bool Untyped::has_value() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void Custom::set_has_value() {
+inline void Untyped::set_has_value() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void Custom::clear_has_value() {
+inline void Untyped::clear_has_value() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void Custom::clear_value() {
+inline void Untyped::clear_value() {
   value_ = 0;
   clear_has_value();
 }
-inline double Custom::value() const {
+inline double Untyped::value() const {
   return value_;
 }
-inline void Custom::set_value(double value) {
+inline void Untyped::set_value(double value) {
   set_has_value();
   value_ = value;
 }
@@ -1368,41 +1368,41 @@ inline void Metric::set_allocated_summary(::io::prometheus::client::Summary* sum
   }
 }
 
-// optional .io.prometheus.client.Custom custom = 5;
-inline bool Metric::has_custom() const {
+// optional .io.prometheus.client.Untyped untyped = 5;
+inline bool Metric::has_untyped() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void Metric::set_has_custom() {
+inline void Metric::set_has_untyped() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void Metric::clear_has_custom() {
+inline void Metric::clear_has_untyped() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void Metric::clear_custom() {
-  if (custom_ != NULL) custom_->::io::prometheus::client::Custom::Clear();
-  clear_has_custom();
+inline void Metric::clear_untyped() {
+  if (untyped_ != NULL) untyped_->::io::prometheus::client::Untyped::Clear();
+  clear_has_untyped();
 }
-inline const ::io::prometheus::client::Custom& Metric::custom() const {
-  return custom_ != NULL ? *custom_ : *default_instance_->custom_;
+inline const ::io::prometheus::client::Untyped& Metric::untyped() const {
+  return untyped_ != NULL ? *untyped_ : *default_instance_->untyped_;
 }
-inline ::io::prometheus::client::Custom* Metric::mutable_custom() {
-  set_has_custom();
-  if (custom_ == NULL) custom_ = new ::io::prometheus::client::Custom;
-  return custom_;
+inline ::io::prometheus::client::Untyped* Metric::mutable_untyped() {
+  set_has_untyped();
+  if (untyped_ == NULL) untyped_ = new ::io::prometheus::client::Untyped;
+  return untyped_;
 }
-inline ::io::prometheus::client::Custom* Metric::release_custom() {
-  clear_has_custom();
-  ::io::prometheus::client::Custom* temp = custom_;
-  custom_ = NULL;
+inline ::io::prometheus::client::Untyped* Metric::release_untyped() {
+  clear_has_untyped();
+  ::io::prometheus::client::Untyped* temp = untyped_;
+  untyped_ = NULL;
   return temp;
 }
-inline void Metric::set_allocated_custom(::io::prometheus::client::Custom* custom) {
-  delete custom_;
-  custom_ = custom;
-  if (custom) {
-    set_has_custom();
+inline void Metric::set_allocated_untyped(::io::prometheus::client::Untyped* untyped) {
+  delete untyped_;
+  untyped_ = untyped;
+  if (untyped) {
+    set_has_untyped();
   } else {
-    clear_has_custom();
+    clear_has_untyped();
   }
 }
 

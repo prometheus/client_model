@@ -22,10 +22,10 @@ message LabelPair {
 }
 
 enum MetricType {
-  COUNTER = 0;
-  GAUGE   = 1;
-  SUMMARY = 2;
-  CUSTOM  = 3;
+  COUNTER  = 0;
+  GAUGE    = 1;
+  SUMMARY  = 2;
+  UNTYPED  = 3;
 }
 
 message Gauge {
@@ -47,7 +47,7 @@ message Summary {
   repeated Quantile quantile     = 3;
 }
 
-message Custom {
+message Untyped {
   optional double value = 1;
 }
 
@@ -56,7 +56,7 @@ message Metric {
   optional Gauge     gauge        = 2;
   optional Counter   counter      = 3;
   optional Summary   summary      = 4;
-  optional Custom    custom	  = 5;
+  optional Untyped   untyped	  = 5;
   optional int64     timestamp_ms = 6;
 }
 

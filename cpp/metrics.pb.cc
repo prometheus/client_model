@@ -37,9 +37,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Summary_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Summary_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Custom_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* Untyped_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Custom_reflection_ = NULL;
+  Untyped_reflection_ = NULL;
 const ::google::protobuf::Descriptor* Metric_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Metric_reflection_ = NULL;
@@ -136,28 +136,28 @@ void protobuf_AssignDesc_metrics_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Summary));
-  Custom_descriptor_ = file->message_type(5);
-  static const int Custom_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Custom, value_),
+  Untyped_descriptor_ = file->message_type(5);
+  static const int Untyped_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Untyped, value_),
   };
-  Custom_reflection_ =
+  Untyped_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Custom_descriptor_,
-      Custom::default_instance_,
-      Custom_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Custom, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Custom, _unknown_fields_),
+      Untyped_descriptor_,
+      Untyped::default_instance_,
+      Untyped_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Untyped, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Untyped, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Custom));
+      sizeof(Untyped));
   Metric_descriptor_ = file->message_type(6);
   static const int Metric_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Metric, label_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Metric, gauge_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Metric, counter_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Metric, summary_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Metric, custom_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Metric, untyped_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Metric, timestamp_ms_),
   };
   Metric_reflection_ =
@@ -213,7 +213,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Summary_descriptor_, &Summary::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Custom_descriptor_, &Custom::default_instance());
+    Untyped_descriptor_, &Untyped::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Metric_descriptor_, &Metric::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -233,8 +233,8 @@ void protobuf_ShutdownFile_metrics_2eproto() {
   delete Quantile_reflection_;
   delete Summary::default_instance_;
   delete Summary_reflection_;
-  delete Custom::default_instance_;
-  delete Custom_reflection_;
+  delete Untyped::default_instance_;
+  delete Untyped_reflection_;
   delete Metric::default_instance_;
   delete Metric_reflection_;
   delete MetricFamily::default_instance_;
@@ -254,20 +254,20 @@ void protobuf_AddDesc_metrics_2eproto() {
     "lue\030\001 \001(\001\"+\n\010Quantile\022\020\n\010quantile\030\001 \001(\001\022"
     "\r\n\005value\030\002 \001(\001\"e\n\007Summary\022\024\n\014sample_coun"
     "t\030\001 \001(\004\022\022\n\nsample_sum\030\002 \001(\001\0220\n\010quantile\030"
-    "\003 \003(\0132\036.io.prometheus.client.Quantile\"\027\n"
-    "\006Custom\022\r\n\005value\030\001 \001(\001\"\210\002\n\006Metric\022.\n\005lab"
-    "el\030\001 \003(\0132\037.io.prometheus.client.LabelPai"
-    "r\022*\n\005gauge\030\002 \001(\0132\033.io.prometheus.client."
-    "Gauge\022.\n\007counter\030\003 \001(\0132\035.io.prometheus.c"
-    "lient.Counter\022.\n\007summary\030\004 \001(\0132\035.io.prom"
-    "etheus.client.Summary\022,\n\006custom\030\005 \001(\0132\034."
-    "io.prometheus.client.Custom\022\024\n\014timestamp"
-    "_ms\030\006 \001(\003\"\210\001\n\014MetricFamily\022\014\n\004name\030\001 \001(\t"
-    "\022\014\n\004help\030\002 \001(\t\022.\n\004type\030\003 \001(\0162 .io.promet"
-    "heus.client.MetricType\022,\n\006metric\030\004 \003(\0132\034"
-    ".io.prometheus.client.Metric*=\n\nMetricTy"
-    "pe\022\013\n\007COUNTER\020\000\022\t\n\005GAUGE\020\001\022\013\n\007SUMMARY\020\002\022"
-    "\n\n\006CUSTOM\020\003B\026\n\024io.prometheus.client", 795);
+    "\003 \003(\0132\036.io.prometheus.client.Quantile\"\030\n"
+    "\007Untyped\022\r\n\005value\030\001 \001(\001\"\212\002\n\006Metric\022.\n\005la"
+    "bel\030\001 \003(\0132\037.io.prometheus.client.LabelPa"
+    "ir\022*\n\005gauge\030\002 \001(\0132\033.io.prometheus.client"
+    ".Gauge\022.\n\007counter\030\003 \001(\0132\035.io.prometheus."
+    "client.Counter\022.\n\007summary\030\004 \001(\0132\035.io.pro"
+    "metheus.client.Summary\022.\n\007untyped\030\005 \001(\0132"
+    "\035.io.prometheus.client.Untyped\022\024\n\014timest"
+    "amp_ms\030\006 \001(\003\"\210\001\n\014MetricFamily\022\014\n\004name\030\001 "
+    "\001(\t\022\014\n\004help\030\002 \001(\t\022.\n\004type\030\003 \001(\0162 .io.pro"
+    "metheus.client.MetricType\022,\n\006metric\030\004 \003("
+    "\0132\034.io.prometheus.client.Metric*>\n\nMetri"
+    "cType\022\013\n\007COUNTER\020\000\022\t\n\005GAUGE\020\001\022\013\n\007SUMMARY"
+    "\020\002\022\013\n\007UNTYPED\020\003B\026\n\024io.prometheus.client", 799);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "metrics.proto", &protobuf_RegisterTypes);
   LabelPair::default_instance_ = new LabelPair();
@@ -275,7 +275,7 @@ void protobuf_AddDesc_metrics_2eproto() {
   Counter::default_instance_ = new Counter();
   Quantile::default_instance_ = new Quantile();
   Summary::default_instance_ = new Summary();
-  Custom::default_instance_ = new Custom();
+  Untyped::default_instance_ = new Untyped();
   Metric::default_instance_ = new Metric();
   MetricFamily::default_instance_ = new MetricFamily();
   LabelPair::default_instance_->InitAsDefaultInstance();
@@ -283,7 +283,7 @@ void protobuf_AddDesc_metrics_2eproto() {
   Counter::default_instance_->InitAsDefaultInstance();
   Quantile::default_instance_->InitAsDefaultInstance();
   Summary::default_instance_->InitAsDefaultInstance();
-  Custom::default_instance_->InitAsDefaultInstance();
+  Untyped::default_instance_->InitAsDefaultInstance();
   Metric::default_instance_->InitAsDefaultInstance();
   MetricFamily::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_metrics_2eproto);
@@ -1539,60 +1539,60 @@ void Summary::Swap(Summary* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Custom::kValueFieldNumber;
+const int Untyped::kValueFieldNumber;
 #endif  // !_MSC_VER
 
-Custom::Custom()
+Untyped::Untyped()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Custom::InitAsDefaultInstance() {
+void Untyped::InitAsDefaultInstance() {
 }
 
-Custom::Custom(const Custom& from)
+Untyped::Untyped(const Untyped& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Custom::SharedCtor() {
+void Untyped::SharedCtor() {
   _cached_size_ = 0;
   value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Custom::~Custom() {
+Untyped::~Untyped() {
   SharedDtor();
 }
 
-void Custom::SharedDtor() {
+void Untyped::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Custom::SetCachedSize(int size) const {
+void Untyped::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Custom::descriptor() {
+const ::google::protobuf::Descriptor* Untyped::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Custom_descriptor_;
+  return Untyped_descriptor_;
 }
 
-const Custom& Custom::default_instance() {
+const Untyped& Untyped::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_metrics_2eproto();
   return *default_instance_;
 }
 
-Custom* Custom::default_instance_ = NULL;
+Untyped* Untyped::default_instance_ = NULL;
 
-Custom* Custom::New() const {
-  return new Custom;
+Untyped* Untyped::New() const {
+  return new Untyped;
 }
 
-void Custom::Clear() {
+void Untyped::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     value_ = 0;
   }
@@ -1600,7 +1600,7 @@ void Custom::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool Custom::MergePartialFromCodedStream(
+bool Untyped::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -1637,7 +1637,7 @@ bool Custom::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Custom::SerializeWithCachedSizes(
+void Untyped::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional double value = 1;
   if (has_value()) {
@@ -1650,7 +1650,7 @@ void Custom::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Custom::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Untyped::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional double value = 1;
   if (has_value()) {
@@ -1664,7 +1664,7 @@ void Custom::SerializeWithCachedSizes(
   return target;
 }
 
-int Custom::ByteSize() const {
+int Untyped::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -1685,10 +1685,10 @@ int Custom::ByteSize() const {
   return total_size;
 }
 
-void Custom::MergeFrom(const ::google::protobuf::Message& from) {
+void Untyped::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Custom* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Custom*>(
+  const Untyped* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Untyped*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1697,7 +1697,7 @@ void Custom::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Custom::MergeFrom(const Custom& from) {
+void Untyped::MergeFrom(const Untyped& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_value()) {
@@ -1707,24 +1707,24 @@ void Custom::MergeFrom(const Custom& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Custom::CopyFrom(const ::google::protobuf::Message& from) {
+void Untyped::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Custom::CopyFrom(const Custom& from) {
+void Untyped::CopyFrom(const Untyped& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Custom::IsInitialized() const {
+bool Untyped::IsInitialized() const {
 
   return true;
 }
 
-void Custom::Swap(Custom* other) {
+void Untyped::Swap(Untyped* other) {
   if (other != this) {
     std::swap(value_, other->value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -1733,11 +1733,11 @@ void Custom::Swap(Custom* other) {
   }
 }
 
-::google::protobuf::Metadata Custom::GetMetadata() const {
+::google::protobuf::Metadata Untyped::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Custom_descriptor_;
-  metadata.reflection = Custom_reflection_;
+  metadata.descriptor = Untyped_descriptor_;
+  metadata.reflection = Untyped_reflection_;
   return metadata;
 }
 
@@ -1749,7 +1749,7 @@ const int Metric::kLabelFieldNumber;
 const int Metric::kGaugeFieldNumber;
 const int Metric::kCounterFieldNumber;
 const int Metric::kSummaryFieldNumber;
-const int Metric::kCustomFieldNumber;
+const int Metric::kUntypedFieldNumber;
 const int Metric::kTimestampMsFieldNumber;
 #endif  // !_MSC_VER
 
@@ -1762,7 +1762,7 @@ void Metric::InitAsDefaultInstance() {
   gauge_ = const_cast< ::io::prometheus::client::Gauge*>(&::io::prometheus::client::Gauge::default_instance());
   counter_ = const_cast< ::io::prometheus::client::Counter*>(&::io::prometheus::client::Counter::default_instance());
   summary_ = const_cast< ::io::prometheus::client::Summary*>(&::io::prometheus::client::Summary::default_instance());
-  custom_ = const_cast< ::io::prometheus::client::Custom*>(&::io::prometheus::client::Custom::default_instance());
+  untyped_ = const_cast< ::io::prometheus::client::Untyped*>(&::io::prometheus::client::Untyped::default_instance());
 }
 
 Metric::Metric(const Metric& from)
@@ -1776,7 +1776,7 @@ void Metric::SharedCtor() {
   gauge_ = NULL;
   counter_ = NULL;
   summary_ = NULL;
-  custom_ = NULL;
+  untyped_ = NULL;
   timestamp_ms_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -1790,7 +1790,7 @@ void Metric::SharedDtor() {
     delete gauge_;
     delete counter_;
     delete summary_;
-    delete custom_;
+    delete untyped_;
   }
 }
 
@@ -1826,8 +1826,8 @@ void Metric::Clear() {
     if (has_summary()) {
       if (summary_ != NULL) summary_->::io::prometheus::client::Summary::Clear();
     }
-    if (has_custom()) {
-      if (custom_ != NULL) custom_->::io::prometheus::client::Custom::Clear();
+    if (has_untyped()) {
+      if (untyped_ != NULL) untyped_->::io::prometheus::client::Untyped::Clear();
     }
     timestamp_ms_ = GOOGLE_LONGLONG(0);
   }
@@ -1895,17 +1895,17 @@ bool Metric::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_custom;
+        if (input->ExpectTag(42)) goto parse_untyped;
         break;
       }
 
-      // optional .io.prometheus.client.Custom custom = 5;
+      // optional .io.prometheus.client.Untyped untyped = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_custom:
+         parse_untyped:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_custom()));
+               input, mutable_untyped()));
         } else {
           goto handle_uninterpreted;
         }
@@ -1971,10 +1971,10 @@ void Metric::SerializeWithCachedSizes(
       4, this->summary(), output);
   }
 
-  // optional .io.prometheus.client.Custom custom = 5;
-  if (has_custom()) {
+  // optional .io.prometheus.client.Untyped untyped = 5;
+  if (has_untyped()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, this->custom(), output);
+      5, this->untyped(), output);
   }
 
   // optional int64 timestamp_ms = 6;
@@ -2018,11 +2018,11 @@ void Metric::SerializeWithCachedSizes(
         4, this->summary(), target);
   }
 
-  // optional .io.prometheus.client.Custom custom = 5;
-  if (has_custom()) {
+  // optional .io.prometheus.client.Untyped untyped = 5;
+  if (has_untyped()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        5, this->custom(), target);
+        5, this->untyped(), target);
   }
 
   // optional int64 timestamp_ms = 6;
@@ -2062,11 +2062,11 @@ int Metric::ByteSize() const {
           this->summary());
     }
 
-    // optional .io.prometheus.client.Custom custom = 5;
-    if (has_custom()) {
+    // optional .io.prometheus.client.Untyped untyped = 5;
+    if (has_untyped()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->custom());
+          this->untyped());
     }
 
     // optional int64 timestamp_ms = 6;
@@ -2121,8 +2121,8 @@ void Metric::MergeFrom(const Metric& from) {
     if (from.has_summary()) {
       mutable_summary()->::io::prometheus::client::Summary::MergeFrom(from.summary());
     }
-    if (from.has_custom()) {
-      mutable_custom()->::io::prometheus::client::Custom::MergeFrom(from.custom());
+    if (from.has_untyped()) {
+      mutable_untyped()->::io::prometheus::client::Untyped::MergeFrom(from.untyped());
     }
     if (from.has_timestamp_ms()) {
       set_timestamp_ms(from.timestamp_ms());
@@ -2154,7 +2154,7 @@ void Metric::Swap(Metric* other) {
     std::swap(gauge_, other->gauge_);
     std::swap(counter_, other->counter_);
     std::swap(summary_, other->summary_);
-    std::swap(custom_, other->custom_);
+    std::swap(untyped_, other->untyped_);
     std::swap(timestamp_ms_, other->timestamp_ms_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
