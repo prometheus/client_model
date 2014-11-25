@@ -248,26 +248,26 @@ void protobuf_AddDesc_metrics_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rmetrics.proto\022\024io.prometheus.client\"(\n"
+    "\n\rmetrics.proto\022\024com.github.prometheus.client\"(\n"
     "\tLabelPair\022\014\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\""
     "\026\n\005Gauge\022\r\n\005value\030\001 \001(\001\"\030\n\007Counter\022\r\n\005va"
     "lue\030\001 \001(\001\"+\n\010Quantile\022\020\n\010quantile\030\001 \001(\001\022"
     "\r\n\005value\030\002 \001(\001\"e\n\007Summary\022\024\n\014sample_coun"
     "t\030\001 \001(\004\022\022\n\nsample_sum\030\002 \001(\001\0220\n\010quantile\030"
-    "\003 \003(\0132\036.io.prometheus.client.Quantile\"\030\n"
+    "\003 \003(\0132\036.com.github.prometheus.client.Quantile\"\030\n"
     "\007Untyped\022\r\n\005value\030\001 \001(\001\"\212\002\n\006Metric\022.\n\005la"
-    "bel\030\001 \003(\0132\037.io.prometheus.client.LabelPa"
-    "ir\022*\n\005gauge\030\002 \001(\0132\033.io.prometheus.client"
-    ".Gauge\022.\n\007counter\030\003 \001(\0132\035.io.prometheus."
+    "bel\030\001 \003(\0132\037.com.github.prometheus.client.LabelPa"
+    "ir\022*\n\005gauge\030\002 \001(\0132\033.com.github.prometheus.client"
+    ".Gauge\022.\n\007counter\030\003 \001(\0132\035.com.github.prometheus."
     "client.Counter\022.\n\007summary\030\004 \001(\0132\035.io.pro"
     "metheus.client.Summary\022.\n\007untyped\030\005 \001(\0132"
-    "\035.io.prometheus.client.Untyped\022\024\n\014timest"
+    "\035.com.github.prometheus.client.Untyped\022\024\n\014timest"
     "amp_ms\030\006 \001(\003\"\210\001\n\014MetricFamily\022\014\n\004name\030\001 "
     "\001(\t\022\014\n\004help\030\002 \001(\t\022.\n\004type\030\003 \001(\0162 .io.pro"
     "metheus.client.MetricType\022,\n\006metric\030\004 \003("
-    "\0132\034.io.prometheus.client.Metric*>\n\nMetri"
+    "\0132\034.com.github.prometheus.client.Metric*>\n\nMetri"
     "cType\022\013\n\007COUNTER\020\000\022\t\n\005GAUGE\020\001\022\013\n\007SUMMARY"
-    "\020\002\022\013\n\007UNTYPED\020\003B\026\n\024io.prometheus.client", 799);
+    "\020\002\022\013\n\007UNTYPED\020\003B\026\n\024com.github.prometheus.client", 799);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "metrics.proto", &protobuf_RegisterTypes);
   LabelPair::default_instance_ = new LabelPair();
@@ -1356,7 +1356,7 @@ bool Summary::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .io.prometheus.client.Quantile quantile = 3;
+      // repeated .com.github.prometheus.client.Quantile quantile = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -1399,7 +1399,7 @@ void Summary::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->sample_sum(), output);
   }
 
-  // repeated .io.prometheus.client.Quantile quantile = 3;
+  // repeated .com.github.prometheus.client.Quantile quantile = 3;
   for (int i = 0; i < this->quantile_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->quantile(i), output);
@@ -1423,7 +1423,7 @@ void Summary::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->sample_sum(), target);
   }
 
-  // repeated .io.prometheus.client.Quantile quantile = 3;
+  // repeated .com.github.prometheus.client.Quantile quantile = 3;
   for (int i = 0; i < this->quantile_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -1454,7 +1454,7 @@ int Summary::ByteSize() const {
     }
 
   }
-  // repeated .io.prometheus.client.Quantile quantile = 3;
+  // repeated .com.github.prometheus.client.Quantile quantile = 3;
   total_size += 1 * this->quantile_size();
   for (int i = 0; i < this->quantile_size(); i++) {
     total_size +=
@@ -1842,7 +1842,7 @@ bool Metric::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .io.prometheus.client.LabelPair label = 1;
+      // repeated .com.github.prometheus.client.LabelPair label = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -1857,7 +1857,7 @@ bool Metric::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .io.prometheus.client.Gauge gauge = 2;
+      // optional .com.github.prometheus.client.Gauge gauge = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -1871,7 +1871,7 @@ bool Metric::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .io.prometheus.client.Counter counter = 3;
+      // optional .com.github.prometheus.client.Counter counter = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -1885,7 +1885,7 @@ bool Metric::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .io.prometheus.client.Summary summary = 4;
+      // optional .com.github.prometheus.client.Summary summary = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -1899,7 +1899,7 @@ bool Metric::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .io.prometheus.client.Untyped untyped = 5;
+      // optional .com.github.prometheus.client.Untyped untyped = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -1947,31 +1947,31 @@ bool Metric::MergePartialFromCodedStream(
 
 void Metric::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .io.prometheus.client.LabelPair label = 1;
+  // repeated .com.github.prometheus.client.LabelPair label = 1;
   for (int i = 0; i < this->label_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->label(i), output);
   }
 
-  // optional .io.prometheus.client.Gauge gauge = 2;
+  // optional .com.github.prometheus.client.Gauge gauge = 2;
   if (has_gauge()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->gauge(), output);
   }
 
-  // optional .io.prometheus.client.Counter counter = 3;
+  // optional .com.github.prometheus.client.Counter counter = 3;
   if (has_counter()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->counter(), output);
   }
 
-  // optional .io.prometheus.client.Summary summary = 4;
+  // optional .com.github.prometheus.client.Summary summary = 4;
   if (has_summary()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->summary(), output);
   }
 
-  // optional .io.prometheus.client.Untyped untyped = 5;
+  // optional .com.github.prometheus.client.Untyped untyped = 5;
   if (has_untyped()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, this->untyped(), output);
@@ -1990,35 +1990,35 @@ void Metric::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Metric::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .io.prometheus.client.LabelPair label = 1;
+  // repeated .com.github.prometheus.client.LabelPair label = 1;
   for (int i = 0; i < this->label_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, this->label(i), target);
   }
 
-  // optional .io.prometheus.client.Gauge gauge = 2;
+  // optional .com.github.prometheus.client.Gauge gauge = 2;
   if (has_gauge()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         2, this->gauge(), target);
   }
 
-  // optional .io.prometheus.client.Counter counter = 3;
+  // optional .com.github.prometheus.client.Counter counter = 3;
   if (has_counter()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         3, this->counter(), target);
   }
 
-  // optional .io.prometheus.client.Summary summary = 4;
+  // optional .com.github.prometheus.client.Summary summary = 4;
   if (has_summary()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         4, this->summary(), target);
   }
 
-  // optional .io.prometheus.client.Untyped untyped = 5;
+  // optional .com.github.prometheus.client.Untyped untyped = 5;
   if (has_untyped()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -2041,28 +2041,28 @@ int Metric::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[1 / 32] & (0xffu << (1 % 32))) {
-    // optional .io.prometheus.client.Gauge gauge = 2;
+    // optional .com.github.prometheus.client.Gauge gauge = 2;
     if (has_gauge()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->gauge());
     }
 
-    // optional .io.prometheus.client.Counter counter = 3;
+    // optional .com.github.prometheus.client.Counter counter = 3;
     if (has_counter()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->counter());
     }
 
-    // optional .io.prometheus.client.Summary summary = 4;
+    // optional .com.github.prometheus.client.Summary summary = 4;
     if (has_summary()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->summary());
     }
 
-    // optional .io.prometheus.client.Untyped untyped = 5;
+    // optional .com.github.prometheus.client.Untyped untyped = 5;
     if (has_untyped()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -2077,7 +2077,7 @@ int Metric::ByteSize() const {
     }
 
   }
-  // repeated .io.prometheus.client.LabelPair label = 1;
+  // repeated .com.github.prometheus.client.LabelPair label = 1;
   total_size += 1 * this->label_size();
   for (int i = 0; i < this->label_size(); i++) {
     total_size +=
@@ -2296,7 +2296,7 @@ bool MetricFamily::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .io.prometheus.client.MetricType type = 3;
+      // optional .com.github.prometheus.client.MetricType type = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -2317,7 +2317,7 @@ bool MetricFamily::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .io.prometheus.client.Metric metric = 4;
+      // repeated .com.github.prometheus.client.Metric metric = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -2368,13 +2368,13 @@ void MetricFamily::SerializeWithCachedSizes(
       2, this->help(), output);
   }
 
-  // optional .io.prometheus.client.MetricType type = 3;
+  // optional .com.github.prometheus.client.MetricType type = 3;
   if (has_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       3, this->type(), output);
   }
 
-  // repeated .io.prometheus.client.Metric metric = 4;
+  // repeated .com.github.prometheus.client.Metric metric = 4;
   for (int i = 0; i < this->metric_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->metric(i), output);
@@ -2408,13 +2408,13 @@ void MetricFamily::SerializeWithCachedSizes(
         2, this->help(), target);
   }
 
-  // optional .io.prometheus.client.MetricType type = 3;
+  // optional .com.github.prometheus.client.MetricType type = 3;
   if (has_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       3, this->type(), target);
   }
 
-  // repeated .io.prometheus.client.Metric metric = 4;
+  // repeated .com.github.prometheus.client.Metric metric = 4;
   for (int i = 0; i < this->metric_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -2446,14 +2446,14 @@ int MetricFamily::ByteSize() const {
           this->help());
     }
 
-    // optional .io.prometheus.client.MetricType type = 3;
+    // optional .com.github.prometheus.client.MetricType type = 3;
     if (has_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
     }
 
   }
-  // repeated .io.prometheus.client.Metric metric = 4;
+  // repeated .com.github.prometheus.client.Metric metric = 4;
   total_size += 1 * this->metric_size();
   for (int i = 0; i < this->metric_size(); i++) {
     total_size +=

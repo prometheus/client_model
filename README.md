@@ -8,7 +8,7 @@ be required.
 
 ## Java
 * [Apache Maven](http://maven.apache.org)
-* [Prometheus Maven Repository](https://github.com/prometheus/io.prometheus-maven-repository) checked out into ../io.prometheus-maven-repository
+* [Maven Central Repository](http://repo1.maven.org/)
 
 ## Go
 *  [Go](http://golang.org)

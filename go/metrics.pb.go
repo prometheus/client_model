@@ -255,7 +255,7 @@ func (m *Metric) GetTimestampMs() int64 {
 type MetricFamily struct {
 	Name             *string     `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
 	Help             *string     `protobuf:"bytes,2,opt,name=help" json:"help,omitempty"`
-	Type             *MetricType `protobuf:"varint,3,opt,name=type,enum=io.prometheus.client.MetricType" json:"type,omitempty"`
+	Type             *MetricType `protobuf:"varint,3,opt,name=type,enum=com.github.prometheus.client.MetricType" json:"type,omitempty"`
 	Metric           []*Metric   `protobuf:"bytes,4,rep,name=metric" json:"metric,omitempty"`
 	XXX_unrecognized []byte      `json:"-"`
 }
@@ -293,5 +293,5 @@ func (m *MetricFamily) GetMetric() []*Metric {
 }
 
 func init() {
-	proto.RegisterEnum("io.prometheus.client.MetricType", MetricType_name, MetricType_value)
+	proto.RegisterEnum("com.github.prometheus.client.MetricType", MetricType_name, MetricType_value)
 }

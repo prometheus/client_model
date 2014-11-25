@@ -20,7 +20,7 @@ delimited protobuf messages:
 require 'open-uri'
 require 'prometheus/client/model'
 
-CONTENT_TYPE = 'application/vnd.google.protobuf; proto=io.prometheus.client.MetricFamily; encoding=delimited'
+CONTENT_TYPE = 'application/vnd.google.protobuf; proto=com.github.prometheus.client.MetricFamily; encoding=delimited'
 
 stream = open('http://localhost:9090/metrics', 'Accept' => CONTENT_TYPE).read
 while family = Prometheus::Client::MetricFamily.read_delimited(stream)

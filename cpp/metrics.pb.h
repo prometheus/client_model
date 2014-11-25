@@ -146,7 +146,7 @@ class LabelPair : public ::google::protobuf::Message {
   inline ::std::string* release_value();
   inline void set_allocated_value(::std::string* value);
 
-  // @@protoc_insertion_point(class_scope:io.prometheus.client.LabelPair)
+  // @@protoc_insertion_point(class_scope:com.github.prometheus.client.LabelPair)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -231,7 +231,7 @@ class Gauge : public ::google::protobuf::Message {
   inline double value() const;
   inline void set_value(double value);
 
-  // @@protoc_insertion_point(class_scope:io.prometheus.client.Gauge)
+  // @@protoc_insertion_point(class_scope:com.github.prometheus.client.Gauge)
  private:
   inline void set_has_value();
   inline void clear_has_value();
@@ -313,7 +313,7 @@ class Counter : public ::google::protobuf::Message {
   inline double value() const;
   inline void set_value(double value);
 
-  // @@protoc_insertion_point(class_scope:io.prometheus.client.Counter)
+  // @@protoc_insertion_point(class_scope:com.github.prometheus.client.Counter)
  private:
   inline void set_has_value();
   inline void clear_has_value();
@@ -402,7 +402,7 @@ class Quantile : public ::google::protobuf::Message {
   inline double value() const;
   inline void set_value(double value);
 
-  // @@protoc_insertion_point(class_scope:io.prometheus.client.Quantile)
+  // @@protoc_insertion_point(class_scope:com.github.prometheus.client.Quantile)
  private:
   inline void set_has_quantile();
   inline void clear_has_quantile();
@@ -494,7 +494,7 @@ class Summary : public ::google::protobuf::Message {
   inline double sample_sum() const;
   inline void set_sample_sum(double value);
 
-  // repeated .io.prometheus.client.Quantile quantile = 3;
+  // repeated .com.github.prometheus.client.Quantile quantile = 3;
   inline int quantile_size() const;
   inline void clear_quantile();
   static const int kQuantileFieldNumber = 3;
@@ -506,7 +506,7 @@ class Summary : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::io::prometheus::client::Quantile >*
       mutable_quantile();
 
-  // @@protoc_insertion_point(class_scope:io.prometheus.client.Summary)
+  // @@protoc_insertion_point(class_scope:com.github.prometheus.client.Summary)
  private:
   inline void set_has_sample_count();
   inline void clear_has_sample_count();
@@ -592,7 +592,7 @@ class Untyped : public ::google::protobuf::Message {
   inline double value() const;
   inline void set_value(double value);
 
-  // @@protoc_insertion_point(class_scope:io.prometheus.client.Untyped)
+  // @@protoc_insertion_point(class_scope:com.github.prometheus.client.Untyped)
  private:
   inline void set_has_value();
   inline void clear_has_value();
@@ -667,7 +667,7 @@ class Metric : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .io.prometheus.client.LabelPair label = 1;
+  // repeated .com.github.prometheus.client.LabelPair label = 1;
   inline int label_size() const;
   inline void clear_label();
   static const int kLabelFieldNumber = 1;
@@ -679,7 +679,7 @@ class Metric : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::io::prometheus::client::LabelPair >*
       mutable_label();
 
-  // optional .io.prometheus.client.Gauge gauge = 2;
+  // optional .com.github.prometheus.client.Gauge gauge = 2;
   inline bool has_gauge() const;
   inline void clear_gauge();
   static const int kGaugeFieldNumber = 2;
@@ -688,7 +688,7 @@ class Metric : public ::google::protobuf::Message {
   inline ::io::prometheus::client::Gauge* release_gauge();
   inline void set_allocated_gauge(::io::prometheus::client::Gauge* gauge);
 
-  // optional .io.prometheus.client.Counter counter = 3;
+  // optional .com.github.prometheus.client.Counter counter = 3;
   inline bool has_counter() const;
   inline void clear_counter();
   static const int kCounterFieldNumber = 3;
@@ -697,7 +697,7 @@ class Metric : public ::google::protobuf::Message {
   inline ::io::prometheus::client::Counter* release_counter();
   inline void set_allocated_counter(::io::prometheus::client::Counter* counter);
 
-  // optional .io.prometheus.client.Summary summary = 4;
+  // optional .com.github.prometheus.client.Summary summary = 4;
   inline bool has_summary() const;
   inline void clear_summary();
   static const int kSummaryFieldNumber = 4;
@@ -706,7 +706,7 @@ class Metric : public ::google::protobuf::Message {
   inline ::io::prometheus::client::Summary* release_summary();
   inline void set_allocated_summary(::io::prometheus::client::Summary* summary);
 
-  // optional .io.prometheus.client.Untyped untyped = 5;
+  // optional .com.github.prometheus.client.Untyped untyped = 5;
   inline bool has_untyped() const;
   inline void clear_untyped();
   static const int kUntypedFieldNumber = 5;
@@ -722,7 +722,7 @@ class Metric : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 timestamp_ms() const;
   inline void set_timestamp_ms(::google::protobuf::int64 value);
 
-  // @@protoc_insertion_point(class_scope:io.prometheus.client.Metric)
+  // @@protoc_insertion_point(class_scope:com.github.prometheus.client.Metric)
  private:
   inline void set_has_gauge();
   inline void clear_has_gauge();
@@ -834,14 +834,14 @@ class MetricFamily : public ::google::protobuf::Message {
   inline ::std::string* release_help();
   inline void set_allocated_help(::std::string* help);
 
-  // optional .io.prometheus.client.MetricType type = 3;
+  // optional .com.github.prometheus.client.MetricType type = 3;
   inline bool has_type() const;
   inline void clear_type();
   static const int kTypeFieldNumber = 3;
   inline ::io::prometheus::client::MetricType type() const;
   inline void set_type(::io::prometheus::client::MetricType value);
 
-  // repeated .io.prometheus.client.Metric metric = 4;
+  // repeated .com.github.prometheus.client.Metric metric = 4;
   inline int metric_size() const;
   inline void clear_metric();
   static const int kMetricFieldNumber = 4;
@@ -853,7 +853,7 @@ class MetricFamily : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::io::prometheus::client::Metric >*
       mutable_metric();
 
-  // @@protoc_insertion_point(class_scope:io.prometheus.client.MetricFamily)
+  // @@protoc_insertion_point(class_scope:com.github.prometheus.client.MetricFamily)
  private:
   inline void set_has_name();
   inline void clear_has_name();
@@ -1174,7 +1174,7 @@ inline void Summary::set_sample_sum(double value) {
   sample_sum_ = value;
 }
 
-// repeated .io.prometheus.client.Quantile quantile = 3;
+// repeated .com.github.prometheus.client.Quantile quantile = 3;
 inline int Summary::quantile_size() const {
   return quantile_.size();
 }
@@ -1229,7 +1229,7 @@ inline void Untyped::set_value(double value) {
 
 // Metric
 
-// repeated .io.prometheus.client.LabelPair label = 1;
+// repeated .com.github.prometheus.client.LabelPair label = 1;
 inline int Metric::label_size() const {
   return label_.size();
 }
@@ -1254,7 +1254,7 @@ Metric::mutable_label() {
   return &label_;
 }
 
-// optional .io.prometheus.client.Gauge gauge = 2;
+// optional .com.github.prometheus.client.Gauge gauge = 2;
 inline bool Metric::has_gauge() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1292,7 +1292,7 @@ inline void Metric::set_allocated_gauge(::io::prometheus::client::Gauge* gauge) 
   }
 }
 
-// optional .io.prometheus.client.Counter counter = 3;
+// optional .com.github.prometheus.client.Counter counter = 3;
 inline bool Metric::has_counter() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1330,7 +1330,7 @@ inline void Metric::set_allocated_counter(::io::prometheus::client::Counter* cou
   }
 }
 
-// optional .io.prometheus.client.Summary summary = 4;
+// optional .com.github.prometheus.client.Summary summary = 4;
 inline bool Metric::has_summary() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1368,7 +1368,7 @@ inline void Metric::set_allocated_summary(::io::prometheus::client::Summary* sum
   }
 }
 
-// optional .io.prometheus.client.Untyped untyped = 5;
+// optional .com.github.prometheus.client.Untyped untyped = 5;
 inline bool Metric::has_untyped() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1572,7 +1572,7 @@ inline void MetricFamily::set_allocated_help(::std::string* help) {
   }
 }
 
-// optional .io.prometheus.client.MetricType type = 3;
+// optional .com.github.prometheus.client.MetricType type = 3;
 inline bool MetricFamily::has_type() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1595,7 +1595,7 @@ inline void MetricFamily::set_type(::io::prometheus::client::MetricType value) {
   type_ = value;
 }
 
-// repeated .io.prometheus.client.Metric metric = 4;
+// repeated .com.github.prometheus.client.Metric metric = 4;
 inline int MetricFamily::metric_size() const {
   return metric_.size();
 }

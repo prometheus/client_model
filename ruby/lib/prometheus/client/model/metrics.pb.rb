@@ -1,4 +1,4 @@
-## Generated from metrics.proto for io.prometheus.client
+## Generated from metrics.proto for com.github.prometheus.client
 require "beefcake"
 
 module Prometheus
