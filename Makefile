@@ -30,10 +30,10 @@ go: go/metrics.pb.go
 go/metrics.pb.go: metrics.proto
 	protoc $< --go_out=go/
 
-java: src/main/java/io/prometheus/client/Metrics.java pom.xml
+java: src/main/java/com/github/prometheus/client/Metrics.java pom.xml
 	mvn clean compile package
 
-src/main/java/io/prometheus/client/Metrics.java: metrics.proto
+src/main/java/com/github/prometheus/client/Metrics.java: metrics.proto
 	protoc $< --java_out=src/main/java
 
 python: python/prometheus/client/model/metrics_pb2.py

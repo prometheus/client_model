@@ -13,8 +13,8 @@
 
 syntax = "proto2";
 
-package io.prometheus.client;
-option java_package = "io.prometheus.client";
+package com.github.prometheus.client;
+option java_package = "com.github.prometheus.client";
 
 message LabelPair {
   optional string name  = 1;
