@@ -9,6 +9,7 @@ module Prometheus
       GAUGE = 1
       SUMMARY = 2
       UNTYPED = 3
+      HISTOGRAM = 4
     end
 
     class LabelPair
@@ -32,6 +33,14 @@ module Prometheus
     end
 
     class Untyped
+      include Beefcake::Message
+    end
+
+    class Histogram
+      include Beefcake::Message
+    end
+
+    class Bucket
       include Beefcake::Message
     end
 
@@ -71,12 +80,24 @@ module Prometheus
       optional :value, :double, 1
     end
 
+    class Histogram
+      optional :sample_count, :uint64, 1
+      optional :sample_sum, :double, 2
+      repeated :bucket, Bucket, 3
+    end
+
+    class Bucket
+      optional :cumulative_count, :uint64, 1
+      optional :upper_bound, :double, 2
+    end
+
     class Metric
       repeated :label, LabelPair, 1
       optional :gauge, Gauge, 2
       optional :counter, Counter, 3
       optional :summary, Summary, 4
       optional :untyped, Untyped, 5
+      optional :histogram, Histogram, 7
       optional :timestamp_ms, :int64, 6
     end
 

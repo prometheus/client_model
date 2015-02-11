@@ -22,10 +22,11 @@ message LabelPair {
 }
 
 enum MetricType {
-  COUNTER  = 0;
-  GAUGE    = 1;
-  SUMMARY  = 2;
-  UNTYPED  = 3;
+  COUNTER    = 0;
+  GAUGE      = 1;
+  SUMMARY    = 2;
+  UNTYPED    = 3;
+  HISTOGRAM  = 4;
 }
 
 message Gauge {
@@ -51,12 +52,24 @@ message Untyped {
   optional double value = 1;
 }
 
+message Histogram {
+  optional uint64 sample_count = 1;
+  optional double sample_sum   = 2;
+  repeated Bucket bucket       = 3; // Ordered in increasing order of upper_bound, +Inf bucket is optional.
+}
+
+message Bucket {
+  optional uint64 cumulative_count = 1; // Cumulative in increasing order.
+  optional double upper_bound = 2;      // Inclusive.
+}
+
 message Metric {
   repeated LabelPair label        = 1;
   optional Gauge     gauge        = 2;
   optional Counter   counter      = 3;
   optional Summary   summary      = 4;
   optional Untyped   untyped      = 5;
+  optional Histogram histogram    = 7;
   optional int64     timestamp_ms = 6;
 }
 
