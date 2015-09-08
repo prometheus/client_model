@@ -72,9 +72,9 @@ func (x *MetricType) UnmarshalJSON(data []byte) error {
 }
 
 type LabelPair struct {
-	Name             *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
-	Value            *string `protobuf:"bytes,2,opt,name=value" json:"value,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Name             *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty" yaml:"name,omitempty"`
+	Value            *string `protobuf:"bytes,2,opt,name=value" json:"value,omitempty" yaml:"value,omitempty"`
+	XXX_unrecognized []byte  `json:"-" yaml:"unrecognized,omitempty"`
 }
 
 func (m *LabelPair) Reset()         { *m = LabelPair{} }
@@ -96,8 +96,8 @@ func (m *LabelPair) GetValue() string {
 }
 
 type Gauge struct {
-	Value            *float64 `protobuf:"fixed64,1,opt,name=value" json:"value,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Value            *float64 `protobuf:"fixed64,1,opt,name=value" json:"value,omitempty" yaml:"value,omitempty"`
+	XXX_unrecognized []byte   `json:"-" yaml:"unrecognized,omitempty"`
 }
 
 func (m *Gauge) Reset()         { *m = Gauge{} }
@@ -112,8 +112,8 @@ func (m *Gauge) GetValue() float64 {
 }
 
 type Counter struct {
-	Value            *float64 `protobuf:"fixed64,1,opt,name=value" json:"value,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Value            *float64 `protobuf:"fixed64,1,opt,name=value" json:"value,omitempty" yaml:"value,omitempty"`
+	XXX_unrecognized []byte   `json:"-" yaml:"unrecognized,omitempty"`
 }
 
 func (m *Counter) Reset()         { *m = Counter{} }
@@ -128,9 +128,9 @@ func (m *Counter) GetValue() float64 {
 }
 
 type Quantile struct {
-	Quantile         *float64 `protobuf:"fixed64,1,opt,name=quantile" json:"quantile,omitempty"`
-	Value            *float64 `protobuf:"fixed64,2,opt,name=value" json:"value,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Quantile         *float64 `protobuf:"fixed64,1,opt,name=quantile" json:"quantile,omitempty" yaml:"quantile,omitempty"`
+	Value            *float64 `protobuf:"fixed64,2,opt,name=value" json:"value,omitempty" yaml:"value,omitempty"`
+	XXX_unrecognized []byte   `json:"-" yaml:"unrecognized,omitempty"`
 }
 
 func (m *Quantile) Reset()         { *m = Quantile{} }
@@ -152,10 +152,10 @@ func (m *Quantile) GetValue() float64 {
 }
 
 type Summary struct {
-	SampleCount      *uint64     `protobuf:"varint,1,opt,name=sample_count" json:"sample_count,omitempty"`
-	SampleSum        *float64    `protobuf:"fixed64,2,opt,name=sample_sum" json:"sample_sum,omitempty"`
-	Quantile         []*Quantile `protobuf:"bytes,3,rep,name=quantile" json:"quantile,omitempty"`
-	XXX_unrecognized []byte      `json:"-"`
+	SampleCount      *uint64     `protobuf:"varint,1,opt,name=sample_count" json:"sample_count,omitempty" yaml:"sample_count,omitempty"`
+	SampleSum        *float64    `protobuf:"fixed64,2,opt,name=sample_sum" json:"sample_sum,omitempty" yaml:"sample_sum,omitempty"`
+	Quantile         []*Quantile `protobuf:"bytes,3,rep,name=quantile" json:"quantile,omitempty" yaml:"quantile,omitempty"`
+	XXX_unrecognized []byte      `json:"-" yaml:"unrecognized,omitempty"`
 }
 
 func (m *Summary) Reset()         { *m = Summary{} }
@@ -184,8 +184,8 @@ func (m *Summary) GetQuantile() []*Quantile {
 }
 
 type Untyped struct {
-	Value            *float64 `protobuf:"fixed64,1,opt,name=value" json:"value,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Value            *float64 `protobuf:"fixed64,1,opt,name=value" json:"value,omitempty" yaml:"value,omitempty"`
+	XXX_unrecognized []byte   `json:"-" yaml:"unrecognized,omitempty"`
 }
 
 func (m *Untyped) Reset()         { *m = Untyped{} }
@@ -200,10 +200,10 @@ func (m *Untyped) GetValue() float64 {
 }
 
 type Histogram struct {
-	SampleCount      *uint64   `protobuf:"varint,1,opt,name=sample_count" json:"sample_count,omitempty"`
-	SampleSum        *float64  `protobuf:"fixed64,2,opt,name=sample_sum" json:"sample_sum,omitempty"`
-	Bucket           []*Bucket `protobuf:"bytes,3,rep,name=bucket" json:"bucket,omitempty"`
-	XXX_unrecognized []byte    `json:"-"`
+	SampleCount      *uint64   `protobuf:"varint,1,opt,name=sample_count" json:"sample_count,omitempty" yaml:"sample_count,omitempty"`
+	SampleSum        *float64  `protobuf:"fixed64,2,opt,name=sample_sum" json:"sample_sum,omitempty" yaml:"sample_sum,omitempty"`
+	Bucket           []*Bucket `protobuf:"bytes,3,rep,name=bucket" json:"bucket,omitempty" yaml:"bucket,omitempty"`
+	XXX_unrecognized []byte    `json:"-" yaml:"unrecognized,omitempty"`
 }
 
 func (m *Histogram) Reset()         { *m = Histogram{} }
@@ -232,9 +232,9 @@ func (m *Histogram) GetBucket() []*Bucket {
 }
 
 type Bucket struct {
-	CumulativeCount  *uint64  `protobuf:"varint,1,opt,name=cumulative_count" json:"cumulative_count,omitempty"`
-	UpperBound       *float64 `protobuf:"fixed64,2,opt,name=upper_bound" json:"upper_bound,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	CumulativeCount  *uint64  `protobuf:"varint,1,opt,name=cumulative_count" json:"cumulative_count,omitempty" yaml:"cumulative_count,omitempty"`
+	UpperBound       *float64 `protobuf:"fixed64,2,opt,name=upper_bound" json:"upper_bound,omitempty" yaml:"upper_bound,omitempty"`
+	XXX_unrecognized []byte   `json:"-" yaml:"unrecognized,omitempty"`
 }
 
 func (m *Bucket) Reset()         { *m = Bucket{} }
@@ -256,14 +256,14 @@ func (m *Bucket) GetUpperBound() float64 {
 }
 
 type Metric struct {
-	Label            []*LabelPair `protobuf:"bytes,1,rep,name=label" json:"label,omitempty"`
-	Gauge            *Gauge       `protobuf:"bytes,2,opt,name=gauge" json:"gauge,omitempty"`
-	Counter          *Counter     `protobuf:"bytes,3,opt,name=counter" json:"counter,omitempty"`
-	Summary          *Summary     `protobuf:"bytes,4,opt,name=summary" json:"summary,omitempty"`
-	Untyped          *Untyped     `protobuf:"bytes,5,opt,name=untyped" json:"untyped,omitempty"`
-	Histogram        *Histogram   `protobuf:"bytes,7,opt,name=histogram" json:"histogram,omitempty"`
-	TimestampMs      *int64       `protobuf:"varint,6,opt,name=timestamp_ms" json:"timestamp_ms,omitempty"`
-	XXX_unrecognized []byte       `json:"-"`
+	Label            []*LabelPair `protobuf:"bytes,1,rep,name=label" json:"label,omitempty" yaml:"label,omitempty"`
+	Gauge            *Gauge       `protobuf:"bytes,2,opt,name=gauge" json:"gauge,omitempty" yaml:"gauge,omitempty"`
+	Counter          *Counter     `protobuf:"bytes,3,opt,name=counter" json:"counter,omitempty" yaml:"counter,omitempty"`
+	Summary          *Summary     `protobuf:"bytes,4,opt,name=summary" json:"summary,omitempty" yaml:"summary,omitempty"`
+	Untyped          *Untyped     `protobuf:"bytes,5,opt,name=untyped" json:"untyped,omitempty" yaml:"untyped,omitempty"`
+	Histogram        *Histogram   `protobuf:"bytes,7,opt,name=histogram" json:"histogram,omitempty" yaml:"histogram,omitempty"`
+	TimestampMs      *int64       `protobuf:"varint,6,opt,name=timestamp_ms" json:"timestamp_ms,omitempty" yaml:"timestamp_ms,omitempty"`
+	XXX_unrecognized []byte       `json:"-" yaml:"unrecognized,omitempty"`
 }
 
 func (m *Metric) Reset()         { *m = Metric{} }
@@ -320,11 +320,11 @@ func (m *Metric) GetTimestampMs() int64 {
 }
 
 type MetricFamily struct {
-	Name             *string     `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
-	Help             *string     `protobuf:"bytes,2,opt,name=help" json:"help,omitempty"`
-	Type             *MetricType `protobuf:"varint,3,opt,name=type,enum=io.prometheus.client.MetricType" json:"type,omitempty"`
-	Metric           []*Metric   `protobuf:"bytes,4,rep,name=metric" json:"metric,omitempty"`
-	XXX_unrecognized []byte      `json:"-"`
+	Name             *string     `protobuf:"bytes,1,opt,name=name" json:"name,omitempty" yaml:"name,omitempty"`
+	Help             *string     `protobuf:"bytes,2,opt,name=help" json:"help,omitempty" yaml:"help,omitempty"`
+	Type             *MetricType `protobuf:"varint,3,opt,name=type,enum=io.prometheus.client.MetricType" json:"type,omitempty" yaml:"type,omitempty"`
+	Metric           []*Metric   `protobuf:"bytes,4,rep,name=metric" json:"metric,omitempty" yaml:"metric,omitempty"`
+	XXX_unrecognized []byte      `json:"-" yaml:"unrecognized,omitempty"`
 }
 
 func (m *MetricFamily) Reset()         { *m = MetricFamily{} }
