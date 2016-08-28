@@ -19,7 +19,8 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='metrics.proto',
   package='io.prometheus.client',
-  serialized_pb=_b('\n\rmetrics.proto\x12\x14io.prometheus.client\"(\n\tLabelPair\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x16\n\x05Gauge\x12\r\n\x05value\x18\x01 \x01(\x01\"\x18\n\x07\x43ounter\x12\r\n\x05value\x18\x01 \x01(\x01\"+\n\x08Quantile\x12\x10\n\x08quantile\x18\x01 \x01(\x01\x12\r\n\x05value\x18\x02 \x01(\x01\"e\n\x07Summary\x12\x14\n\x0csample_count\x18\x01 \x01(\x04\x12\x12\n\nsample_sum\x18\x02 \x01(\x01\x12\x30\n\x08quantile\x18\x03 \x03(\x0b\x32\x1e.io.prometheus.client.Quantile\"\x18\n\x07Untyped\x12\r\n\x05value\x18\x01 \x01(\x01\"c\n\tHistogram\x12\x14\n\x0csample_count\x18\x01 \x01(\x04\x12\x12\n\nsample_sum\x18\x02 \x01(\x01\x12,\n\x06\x62ucket\x18\x03 \x03(\x0b\x32\x1c.io.prometheus.client.Bucket\"7\n\x06\x42ucket\x12\x18\n\x10\x63umulative_count\x18\x01 \x01(\x04\x12\x13\n\x0bupper_bound\x18\x02 \x01(\x01\"\xbe\x02\n\x06Metric\x12.\n\x05label\x18\x01 \x03(\x0b\x32\x1f.io.prometheus.client.LabelPair\x12*\n\x05gauge\x18\x02 \x01(\x0b\x32\x1b.io.prometheus.client.Gauge\x12.\n\x07\x63ounter\x18\x03 \x01(\x0b\x32\x1d.io.prometheus.client.Counter\x12.\n\x07summary\x18\x04 \x01(\x0b\x32\x1d.io.prometheus.client.Summary\x12.\n\x07untyped\x18\x05 \x01(\x0b\x32\x1d.io.prometheus.client.Untyped\x12\x32\n\thistogram\x18\x07 \x01(\x0b\x32\x1f.io.prometheus.client.Histogram\x12\x14\n\x0ctimestamp_ms\x18\x06 \x01(\x03\"\x88\x01\n\x0cMetricFamily\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04help\x18\x02 \x01(\t\x12.\n\x04type\x18\x03 \x01(\x0e\x32 .io.prometheus.client.MetricType\x12,\n\x06metric\x18\x04 \x03(\x0b\x32\x1c.io.prometheus.client.Metric*M\n\nMetricType\x12\x0b\n\x07\x43OUNTER\x10\x00\x12\t\n\x05GAUGE\x10\x01\x12\x0b\n\x07SUMMARY\x10\x02\x12\x0b\n\x07UNTYPED\x10\x03\x12\r\n\tHISTOGRAM\x10\x04\x42\x16\n\x14io.prometheus.client')
+  syntax='proto3',
+  serialized_pb=_b('\n\rmetrics.proto\x12\x14io.prometheus.client\"(\n\tLabelPair\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x16\n\x05Gauge\x12\r\n\x05value\x18\x01 \x01(\x01\"\x18\n\x07\x43ounter\x12\r\n\x05value\x18\x01 \x01(\x01\"+\n\x08Quantile\x12\x10\n\x08quantile\x18\x01 \x01(\x01\x12\r\n\x05value\x18\x02 \x01(\x01\"e\n\x07Summary\x12\x14\n\x0csample_count\x18\x01 \x01(\x04\x12\x12\n\nsample_sum\x18\x02 \x01(\x01\x12\x30\n\x08quantile\x18\x03 \x03(\x0b\x32\x1e.io.prometheus.client.Quantile\"\x18\n\x07Untyped\x12\r\n\x05value\x18\x01 \x01(\x01\"c\n\tHistogram\x12\x14\n\x0csample_count\x18\x01 \x01(\x04\x12\x12\n\nsample_sum\x18\x02 \x01(\x01\x12,\n\x06\x62ucket\x18\x03 \x03(\x0b\x32\x1c.io.prometheus.client.Bucket\"7\n\x06\x42ucket\x12\x18\n\x10\x63umulative_count\x18\x01 \x01(\x04\x12\x13\n\x0bupper_bound\x18\x02 \x01(\x01\"\xbe\x02\n\x06Metric\x12.\n\x05label\x18\x01 \x03(\x0b\x32\x1f.io.prometheus.client.LabelPair\x12*\n\x05gauge\x18\x02 \x01(\x0b\x32\x1b.io.prometheus.client.Gauge\x12.\n\x07\x63ounter\x18\x03 \x01(\x0b\x32\x1d.io.prometheus.client.Counter\x12.\n\x07summary\x18\x04 \x01(\x0b\x32\x1d.io.prometheus.client.Summary\x12.\n\x07untyped\x18\x05 \x01(\x0b\x32\x1d.io.prometheus.client.Untyped\x12\x32\n\thistogram\x18\x07 \x01(\x0b\x32\x1f.io.prometheus.client.Histogram\x12\x14\n\x0ctimestamp_ms\x18\x06 \x01(\x03\"\x88\x01\n\x0cMetricFamily\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04help\x18\x02 \x01(\t\x12.\n\x04type\x18\x03 \x01(\x0e\x32 .io.prometheus.client.MetricType\x12,\n\x06metric\x18\x04 \x03(\x0b\x32\x1c.io.prometheus.client.Metric*M\n\nMetricType\x12\x0b\n\x07\x43OUNTER\x10\x00\x12\t\n\x05GAUGE\x10\x01\x12\x0b\n\x07SUMMARY\x10\x02\x12\x0b\n\x07UNTYPED\x10\x03\x12\r\n\tHISTOGRAM\x10\x04\x42\x16\n\x14io.prometheus.clientb\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -95,6 +96,7 @@ _LABELPAIR = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
@@ -113,7 +115,7 @@ _GAUGE = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='value', full_name='io.prometheus.client.Gauge.value', index=0,
       number=1, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -125,6 +127,7 @@ _GAUGE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
@@ -143,7 +146,7 @@ _COUNTER = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='value', full_name='io.prometheus.client.Counter.value', index=0,
       number=1, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -155,6 +158,7 @@ _COUNTER = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
@@ -173,14 +177,14 @@ _QUANTILE = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='quantile', full_name='io.prometheus.client.Quantile.quantile', index=0,
       number=1, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='value', full_name='io.prometheus.client.Quantile.value', index=1,
       number=2, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -192,6 +196,7 @@ _QUANTILE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
@@ -217,7 +222,7 @@ _SUMMARY = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='sample_sum', full_name='io.prometheus.client.Summary.sample_sum', index=1,
       number=2, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -236,6 +241,7 @@ _SUMMARY = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
@@ -254,7 +260,7 @@ _UNTYPED = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='value', full_name='io.prometheus.client.Untyped.value', index=0,
       number=1, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -266,6 +272,7 @@ _UNTYPED = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
@@ -291,7 +298,7 @@ _HISTOGRAM = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='sample_sum', full_name='io.prometheus.client.Histogram.sample_sum', index=1,
       number=2, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -310,6 +317,7 @@ _HISTOGRAM = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
@@ -335,7 +343,7 @@ _BUCKET = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='upper_bound', full_name='io.prometheus.client.Bucket.upper_bound', index=1,
       number=2, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -347,6 +355,7 @@ _BUCKET = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
@@ -419,6 +428,7 @@ _METRIC = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
@@ -470,6 +480,7 @@ _METRICFAMILY = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
