@@ -358,7 +358,3 @@ func (m *MetricFamily) GetMetric() []*Metric {
 	}
 	return nil
 }
-
-func init() {
-	proto.RegisterEnum("io.prometheus.client.MetricType", MetricType_name, MetricType_value)
-}
