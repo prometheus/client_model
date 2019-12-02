@@ -19,15 +19,16 @@ repository.
 
 Therefore, formerly existing support for languages other than Go (namely C++,
 Java, Python, Ruby) has been removed from this repository. If you are a 3rd
-party user of those languages, you can go back to commit
-14fe0d1b01d4d5fc031dd4bec1823bd3ebbe8016 to keep using the old code, or you can
-consume
+party user of those languages, you can go back to [commit
+14fe0d1](https://github.com/prometheus/client_model/commit/14fe0d1b01d4d5fc031dd4bec1823bd3ebbe8016)
+to keep using the old code, or you can consume
 [`metrics.proto`](https://github.com/prometheus/client_model/blob/master/metrics.proto)
 directly with your own protobuf tooling. Note, however, that changes of
-`metrics.proto` after commit 14fe0d1b01d4d5fc031dd4bec1823bd3ebbe8016 are
-solely informed by requirements of the Go instrumentation library and will not
-take into account any requirements of other languages or stability concerns for
-the protobuf-based exposition format.
+`metrics.proto` after [commit
+14fe0d1](https://github.com/prometheus/client_model/commit/14fe0d1b01d4d5fc031dd4bec1823bd3ebbe8016)
+are solely informed by requirements of the Go instrumentation library and will
+not take into account any requirements of other languages or stability concerns
+for the protobuf-based exposition format.
 
 Check out the [OpenMetrics project](https://openmetrics.io/) for the future of
 the data model and exposition format used by Prometheus and others.
