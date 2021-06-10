@@ -61,7 +61,12 @@ message Histogram {
   optional double sample_sum   = 2;
   repeated Bucket bucket       = 3; // Ordered in increasing order of upper_bound, +Inf bucket is optional.
   // Sparse bucket (sb) stuff:
-  optional uint32 sb_resolution      = 4; // That many buckets per power of ten. Must be <256. Zero for no sparse buckets.
+  // The sb_schema defines the bucket schema. Currently, valid numbers are -4 <= n <= 8.
+  // They are all for base-2 bucket schemas, where 1 is a bucket boundary in each case, and
+  // then each power of two is divided into 2^n logarithmic buckets.
+  // Or in other words, each bucket boundary is the previous boundary times 2^(2^-n).
+  // In the future, more bucket schemas may be added using numbers < -4 or > 8.
+  optional sint32 sb_schema          = 4;
   optional double sb_zero_threshold  = 5; // Breadth of the zero bucket.
   optional uint64 sb_zero_count      = 6; // Count in zero bucket.
   optional SparseBuckets sb_negative = 7; // Negative sparse buckets.
