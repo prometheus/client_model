@@ -1,0 +1,16 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  steps:
+    - uses: actions/checkout@v2
+    - uses: bufbuild/buf-setup-action@v0.6.0
+    - uses: bufbuild/buf-lint-action@v1
+    - uses: bufbuild/buf-breaking-action@v1
+      with:
+        against: 'https://github.com/prometheus/client_model.git#branch=master,ref=HEAD~1'
+    - uses: bufbuild/buf-push-action@v1
+      with:
+        buf_token: ${{ secrets.BUF_TOKEN }}
