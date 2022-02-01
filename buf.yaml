@@ -1,5 +1,5 @@
 version: v1
-name: buf.build/prometheus/client_model
+name: buf.build/prometheus/client-model
 breaking:
   use:
     - FILE
