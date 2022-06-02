@@ -1,4 +1,4 @@
-module github.com/prometheus/client_model
+module github.com/m3db/prometheus_client_model
 
 go 1.9
 
