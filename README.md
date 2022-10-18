@@ -1,3 +1,6 @@
+_(If you are reading this because you are interested in Prometheus's native
+histograms, pay special attention to the last paragraph below.)_
+
 # Deprecation note
 
 This repository used to contain the [protocol
@@ -32,3 +35,10 @@ for the protobuf-based exposition format.
 
 Check out the [OpenMetrics project](https://openmetrics.io/) for the future of
 the data model and exposition format used by Prometheus and others.
+
+Note, though, that in an ironic twist of fate, the protobuf-based exposition
+format got revived to ease the implementation of experimental support for
+native histograms in Prometheus. Therefore, starting with v2.40.0, the
+Prometheus server is again capable of ingesting the protobuf-based exposition
+format (if the respective feature flag is enabled). Eventually, native
+histogram support will be added in some form to OpenMetrics, too.
