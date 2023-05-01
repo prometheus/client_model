@@ -18,10 +18,8 @@ all:
 GO_FILE := go/metrics.pb.go
 PROTO_FILE := io/prometheus/client/metrics.proto
 
-# Need to be on a previous version that doesn't cause the updated WKT go_package values to be added.
-PROTOC_VERSION := 3.13.0
-# This has been around for a while.
-PROTOC_GEN_GO_VERSION := v1.3.5
+PROTOC_VERSION := 3.20.3
+PROTOC_GEN_GO_VERSION := v1.30.0
 
 # There are no protobuf releases for Darwin ARM so for
 # now we always use the x86_64 release through Rosetta.
@@ -58,7 +56,7 @@ $(PROTOC_GEN_GO):
 	@rm -f $(PROTOC_GEN_GO_BIN)
 	@mkdir -p $(dir $(PROTOC_GEN_GO_BIN))
 	$(eval PROTOC_GEN_GO_TMP := $(shell mktemp -d))
-	cd $(PROTOC_GEN_GO_TMP); GOBIN=$(PWD)/$(dir $(PROTOC_GEN_GO_BIN)) go get github.com/golang/protobuf/protoc-gen-go@$(PROTOC_GEN_GO_VERSION)
+	cd $(PROTOC_GEN_GO_TMP); GOBIN=$(PWD)/$(dir $(PROTOC_GEN_GO_BIN)) go install google.golang.org/protobuf/cmd/protoc-gen-go@$(PROTOC_GEN_GO_VERSION)
 	@rm -rf $(PROTOC_GEN_GO_TMP)
 	@rm -rf $(dir $(PROTOC_GEN_GO))
 	@mkdir -p $(dir $(PROTOC_GEN_GO))
