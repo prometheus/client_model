@@ -46,6 +46,8 @@ message Gauge {
 message Counter {
   optional double   value    = 1;
   optional Exemplar exemplar = 2;
+
+  optional google.protobuf.Timestamp  created_timestamp = 3;
 }
 
 message Quantile {
@@ -57,6 +59,8 @@ message Summary {
   optional uint64   sample_count = 1;
   optional double   sample_sum   = 2;
   repeated Quantile quantile     = 3;
+
+  optional google.protobuf.Timestamp  created_timestamp = 4;
 }
 
 message Untyped {
@@ -69,6 +73,8 @@ message Histogram {
   optional double sample_sum         = 2;
   // Buckets for the conventional histogram.
   repeated Bucket bucket             = 3; // Ordered in increasing order of upper_bound, +Inf bucket is optional.
+
+  optional google.protobuf.Timestamp created_timestamp = 15;
 
   // Everything below here is for native histograms (also known as sparse histograms).
   // Native histograms are an experimental feature without stability guarantees.
