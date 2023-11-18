@@ -150,4 +150,5 @@ message MetricFamily {
   optional string     help   = 2;
   optional MetricType type   = 3;
   repeated Metric     metric = 4;
+  optional string     unit   = 5;
 }
