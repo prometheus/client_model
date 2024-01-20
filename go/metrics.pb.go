@@ -481,9 +481,10 @@ type Histogram struct {
 	// Use either "positive_delta" or "positive_count", the former for
 	// regular histograms with integer counts, the latter for float
 	// histograms.
-	PositiveDelta []int64     `protobuf:"zigzag64,13,rep,name=positive_delta,json=positiveDelta" json:"positive_delta,omitempty"` // Count delta of each bucket compared to previous one (or to zero for 1st bucket).
-	PositiveCount []float64   `protobuf:"fixed64,14,rep,name=positive_count,json=positiveCount" json:"positive_count,omitempty"`  // Absolute count of each bucket.
-	Exemplars     []*Exemplar `protobuf:"bytes,16,rep,name=exemplars" json:"exemplars,omitempty"`
+	PositiveDelta []int64   `protobuf:"zigzag64,13,rep,name=positive_delta,json=positiveDelta" json:"positive_delta,omitempty"` // Count delta of each bucket compared to previous one (or to zero for 1st bucket).
+	PositiveCount []float64 `protobuf:"fixed64,14,rep,name=positive_count,json=positiveCount" json:"positive_count,omitempty"`  // Absolute count of each bucket.
+	// Only used for native histograms. These exemplars MUST have a timestamp.
+	Exemplars []*Exemplar `protobuf:"bytes,16,rep,name=exemplars" json:"exemplars,omitempty"`
 }
 
 func (x *Histogram) Reset() {
