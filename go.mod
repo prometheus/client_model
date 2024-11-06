@@ -1,5 +1,7 @@
 module github.com/prometheus/client_model
 
-go 1.19
+go 1.21
 
-require google.golang.org/protobuf v1.34.2
+toolchain go1.23.0
+
+require google.golang.org/protobuf v1.35.1
